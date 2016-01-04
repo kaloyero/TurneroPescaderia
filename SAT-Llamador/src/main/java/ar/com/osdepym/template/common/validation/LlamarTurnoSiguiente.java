@@ -49,7 +49,7 @@ public class LlamarTurnoSiguiente extends LlamarTurno {
 		try {
 	
 			
-			String query = "select * from SAT.turno where llamado like ? and id_sector = ? and DATE(fecha_ticket)=DATE(NOW()) order by numero_turno and fecha_ticket ";
+			String query = "select * from turnero.turno where llamado like ? and id_sector = ? and DATE(fecha_ticket)=DATE(NOW()) order by numero_turno and fecha_ticket ";
 
 			PreparedStatement preparedStmt = connection.prepareStatement(query);
 			preparedStmt.setString(1, "NO");
@@ -64,7 +64,7 @@ public class LlamarTurnoSiguiente extends LlamarTurno {
 			}
 			
 			// actualiza el llamado
-			query = "update SAT.turno set fecha_atencion = ?, idControl = ?,  llamado = ?  where id_turno = ? ";
+			query = "update turnero.turno set fecha_atencion = ?, idControl = ?,  llamado = ?  where id_turno = ? ";
 
 			PreparedStatement preparedStmt2 = connection
 					.prepareStatement(query);

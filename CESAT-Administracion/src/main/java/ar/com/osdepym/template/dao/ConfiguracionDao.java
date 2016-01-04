@@ -27,7 +27,7 @@ public class ConfiguracionDao {
 		ArrayList<Configuracion> configuraciones = new ArrayList<Configuracion>();
 		LOGGER.debug("Listando Configuraciones");
 
-		String query = "SELECT * FROM sat.configuracion";
+		String query = "SELECT * FROM turnero.configuracion";
 
 		PreparedStatement preparedStmt;
 		try {
@@ -73,7 +73,7 @@ public class ConfiguracionDao {
 	 */
 	public Configuracion editarConfiguracion(Configuracion configuracionEditar) {
 		Connection connection = new ConnectionMysql().createConnection();
-		String query = "update sat.configuracion set tiempopngjpg = ?,tiempogif = ?,directorio=?,feed=? where id = ? ";
+		String query = "update turnero.configuracion set tiempopngjpg = ?,tiempogif = ?,directorio=?,feed=? where id = ? ";
 		LOGGER.debug(LoggerVariables.PREPARANDO_EDIT);
 
 		PreparedStatement preparedStmt;

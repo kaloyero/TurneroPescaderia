@@ -27,7 +27,7 @@ public class SectorDao {
 		ArrayList<Sector> sectores = new ArrayList<Sector>();
 		LOGGER.debug(LoggerVariables.PREPARANDO_BUSCAR);
 
-		String query = "SELECT * from SAT.sector";
+		String query = "SELECT * from turnero.sector";
 		PreparedStatement preparedStmt;
 		try {
 			preparedStmt = connection.prepareStatement(query);
@@ -68,7 +68,7 @@ public class SectorDao {
 	 */
 	public Sector editarSector(Sector sectorEditar) {
 		Connection connection = new ConnectionMysql().createConnection();
-		String query = "update SAT.sector set cod_sector = ?,  nom_sector = ?,  habilitado = ?  where id_sector = ? ";
+		String query = "update turnero.sector set cod_sector = ?,  nom_sector = ?,  habilitado = ?  where id_sector = ? ";
 		PreparedStatement preparedStmt;
 		LOGGER.debug(LoggerVariables.PREPARANDO_EDIT);
 
@@ -125,7 +125,7 @@ public class SectorDao {
 	 */
 	public Sector insertarSector(Sector sectorInsertar) {
 		Connection connection = new ConnectionMysql().createConnection();
-		String query = "insert into sat.sector (cod_sector,nom_sector,habilitado) values(?,?,?) ";
+		String query = "insert into turnero.sector (cod_sector,nom_sector,habilitado) values(?,?,?) ";
 		LOGGER.debug(LoggerVariables.PREPARANDO_INSERT);
 
 		PreparedStatement preparedStmt;
@@ -187,7 +187,7 @@ public class SectorDao {
 		Connection connection = new ConnectionMysql().createConnection();
 		LOGGER.debug(LoggerVariables.PREPARANDO_DELETE);
 
-		String query = "delete from sat.sector where id_sector = ? ";
+		String query = "delete from turnero.sector where id_sector = ? ";
 		PreparedStatement preparedStmt;
 		try {
 			preparedStmt = connection.prepareStatement(query);

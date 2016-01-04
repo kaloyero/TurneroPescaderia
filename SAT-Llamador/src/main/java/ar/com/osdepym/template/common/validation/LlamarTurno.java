@@ -22,8 +22,8 @@ public abstract class LlamarTurno {
 
 		try {
 
-			String query = "SELECT idControl, idSector, codigo FROM SAT.controlremoto_sector crs "
-					+ "inner join  SAT.controlremoto  cr "
+			String query = "SELECT idControl, idSector, codigo FROM turnero.controlremoto_sector crs "
+					+ "inner join  turnero.controlremoto  cr "
 					+ "on (crs.idControl = cr.id AND cr.codigo like '"+ codigoControl +"') ";
 
 			PreparedStatement preparedStmt = connection.prepareStatement(query);
@@ -66,8 +66,8 @@ public abstract class LlamarTurno {
 
 		try {
 
-			String query = "SELECT idControl, idSector, codigo FROM SAT.controlremoto_sector crs "
-					+ "inner join  SAT.controlremoto  cr "
+			String query = "SELECT idControl, idSector, codigo FROM turnero.controlremoto_sector crs "
+					+ "inner join  turnero.controlremoto  cr "
 					+ "on (crs.idControl = cr.id AND cr.codigo like '"+ codigoControl +"') ";
 
 			PreparedStatement preparedStmt = connection.prepareStatement(query);

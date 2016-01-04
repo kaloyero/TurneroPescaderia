@@ -29,7 +29,7 @@ public class ControlRemotoDao {
 		ArrayList<ControlRemoto> controlesRemotos = new ArrayList<ControlRemoto>();
 		LOGGER.debug(LoggerVariables.PREPARANDO_BUSCAR);
 
-		String query = "SELECT * from SAT.controlremoto";
+		String query = "SELECT * from turnero.controlremoto";
 		PreparedStatement preparedStmt;
 		try {
 			preparedStmt = connection.prepareStatement(query);
@@ -68,7 +68,7 @@ public class ControlRemotoDao {
 	 */
 	public ControlRemoto editarControlRemoto(ControlRemoto controlEditar) {
 		Connection connection = new ConnectionMysql().createConnection();
-		String query = "update SAT.controlremoto set codigo = ? where id = ? ";
+		String query = "update turnero.controlremoto set codigo = ? where id = ? ";
 		PreparedStatement preparedStmt;
 		LOGGER.debug(LoggerVariables.PREPARANDO_EDIT);
 
@@ -116,7 +116,7 @@ public class ControlRemotoDao {
 	 */
 	public ControlRemoto insertarControlRemoto(ControlRemoto controlInsertar) {
 		Connection connection = new ConnectionMysql().createConnection();
-		String query = "insert into sat.controlremoto (codigo) values(?) ";
+		String query = "insert into turnero.controlremoto (codigo) values(?) ";
 		LOGGER.debug(LoggerVariables.PREPARANDO_INSERT);
 
 		PreparedStatement preparedStmt;
@@ -168,7 +168,7 @@ public class ControlRemotoDao {
 		Connection connection = new ConnectionMysql().createConnection();
 		LOGGER.debug(LoggerVariables.PREPARANDO_DELETE);
 
-		String query = "delete from sat.controlremoto where id = ? ";
+		String query = "delete from turnero.controlremoto where id = ? ";
 		PreparedStatement preparedStmt;
 		try {
 			preparedStmt = connection.prepareStatement(query);
@@ -198,7 +198,7 @@ public class ControlRemotoDao {
 		Connection connection = new ConnectionMysql().createConnection();
 		LOGGER.debug(LoggerVariables.PREPARANDO_DELETE);
 
-		String query = "delete from sat.controlremoto_sector where id = ? ";
+		String query = "delete from turnero.controlremoto_sector where id = ? ";
 		PreparedStatement preparedStmt;
 		try {
 			preparedStmt = connection.prepareStatement(query);
@@ -241,7 +241,7 @@ public class ControlRemotoDao {
 		ArrayList<ControlSector> controlesSector = new ArrayList<ControlSector>();
 		LOGGER.debug(LoggerVariables.PREPARANDO_BUSCAR);
 
-		String query = "SELECT * FROM SAT.controlremoto_sector INNER JOIN SAT.controlremoto ON SAT.controlremoto.id = SAT.controlremoto_sector.idControl INNER JOIN SAT.sector ON SAT.controlremoto_sector.idSector = SAT.sector.id_sector";
+		String query = "SELECT * FROM turnero.controlremoto_sector INNER JOIN turnero.controlremoto ON turnero.controlremoto.id = turnero.controlremoto_sector.idControl INNER JOIN turnero.sector ON turnero.controlremoto_sector.idSector = turnero.sector.id_sector";
 
 		PreparedStatement preparedStmt;
 		try {
@@ -304,10 +304,10 @@ public class ControlRemotoDao {
 		Connection connection = new ConnectionMysql().createConnection();
 		LOGGER.debug(LoggerVariables.PREPARANDO_INSERT);
 
-		String query = "insert into sat.controlremoto_sector (idControl,idSector) values(?,?) ";
-		String querySector = "Select * from SAT.sector where id_sector ="
+		String query = "insert into turnero.controlremoto_sector (idControl,idSector) values(?,?) ";
+		String querySector = "Select * from turnero.sector where id_sector ="
 				+ controlSectorInsertar.getSectorId();
-		String queryControl = "Select * from SAT.controlremoto where id ="
+		String queryControl = "Select * from turnero.controlremoto where id ="
 				+ controlSectorInsertar.getControlId();
 		PreparedStatement preparedStmt;
 		PreparedStatement preparedStmtSector;
@@ -373,10 +373,10 @@ public class ControlRemotoDao {
 		Connection connection = new ConnectionMysql().createConnection();
 		LOGGER.debug(LoggerVariables.PREPARANDO_EDIT);
 
-		String query = "update SAT.controlremoto_sector set idSector = ?,   idControl = ?  where id = ? ";
-		String querySector = "Select * from SAT.sector where id_sector ="
+		String query = "update turnero.controlremoto_sector set idSector = ?,   idControl = ?  where id = ? ";
+		String querySector = "Select * from turnero.sector where id_sector ="
 				+ controlSectorEditar.getSectorId();
-		String queryControl = "Select * from SAT.controlremoto where id ="
+		String queryControl = "Select * from turnero.controlremoto where id ="
 				+ controlSectorEditar.getControlId();
 		PreparedStatement preparedStmt;
 		PreparedStatement preparedStmtSector;

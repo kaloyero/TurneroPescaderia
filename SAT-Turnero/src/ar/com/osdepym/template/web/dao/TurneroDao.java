@@ -24,7 +24,7 @@ public class TurneroDao {
 
 		Connection connection = (Connection) new ConnectionMysql()
 				.createConnection();
-		String query = "select * from sat.sat ";
+		String query = "select * from turnero.sat ";
 		try {
 			PreparedStatement preparedStatement = (PreparedStatement) connection
 					.prepareStatement(query);
@@ -56,7 +56,7 @@ public class TurneroDao {
 		String password = "";
 		Connection connection = (Connection) new ConnectionMysql()
 				.createConnection();
-		String query = "select * from sat.sat ";
+		String query = "select * from turnero.sat ";
 		try {
 			PreparedStatement preparedStatement = (PreparedStatement) connection
 					.prepareStatement(query);

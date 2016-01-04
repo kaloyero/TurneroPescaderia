@@ -43,7 +43,7 @@ public class SectoresDao {
 
 			LOGGER.debug(LoggerVariables.PREPARANDO_BUSCAR);
 
-			String query = "SELECT * from SAT.sector  WHERE habilitado = 'SI'";
+			String query = "SELECT * from turnero.sector  WHERE habilitado = 'SI'";
 			// String query =
 			// "SELECT * from STA.usuario  WHERE nom_usuario = ?";
 			if (connection!=null){

@@ -28,7 +28,7 @@ public class PuestoDao {
 		ArrayList<Puesto> puestos = new ArrayList<Puesto>();
 		LOGGER.debug(LoggerVariables.PREPARANDO_BUSCAR);
 
-		String query = "SELECT * from SAT.puesto";
+		String query = "SELECT * from turnero.puesto";
 		PreparedStatement preparedStmt;
 		try {
 			preparedStmt = connection.prepareStatement(query);
@@ -125,7 +125,7 @@ public class PuestoDao {
 		Connection connection = new ConnectionMysql().createConnection();
 		LOGGER.debug(LoggerVariables.PREPARANDO_INSERT);
 
-		String query = "insert into sat.puesto (nro_puesto,ip,habilitado) values(?,?,?) ";
+		String query = "insert into turnero.puesto (nro_puesto,ip,habilitado) values(?,?,?) ";
 		PreparedStatement preparedStmt;
 		try {
 			preparedStmt = connection.prepareStatement(query,
@@ -184,7 +184,7 @@ public class PuestoDao {
 		Connection connection = new ConnectionMysql().createConnection();
 		LOGGER.debug(LoggerVariables.PREPARANDO_DELETE);
 
-		String query = "delete from sat.puesto where id_puesto = ? ";
+		String query = "delete from turnero.puesto where id_puesto = ? ";
 		PreparedStatement preparedStmt;
 		try {
 			preparedStmt = connection.prepareStatement(query);

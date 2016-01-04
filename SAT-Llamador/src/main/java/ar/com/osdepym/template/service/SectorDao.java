@@ -31,7 +31,7 @@ public class SectorDao {
 		Connection connection = (Connection) new ConnectionMysql()
 				.createConnection();
 		try {
-			String query = "select * from SAT.sector where nom_sector like ? and habilitado like ? ";
+			String query = "select * from turnero.sector where nom_sector like ? and habilitado like ? ";
 			PreparedStatement preparedStatement = (PreparedStatement) connection
 					.prepareStatement(query);
 			preparedStatement.setString(1, nomSector);
@@ -81,7 +81,7 @@ public class SectorDao {
 				.createConnection();
 		try {
 
-			String query = "select * from SAT.sector where cod_sector like ?  ";
+			String query = "select * from turnero.sector where cod_sector like ?  ";
 			PreparedStatement preparedStatement = (PreparedStatement) connection
 					.prepareStatement(query);
 			preparedStatement.setString(1, codSector);
@@ -128,7 +128,7 @@ public class SectorDao {
 
 		try {
 
-			String query = "select * from SAT.sector ";
+			String query = "select * from turnero.sector ";
 			PreparedStatement preparedStatement = (PreparedStatement) connection
 					.prepareStatement(query);
 			ResultSet resultSet = (ResultSet) preparedStatement.executeQuery();

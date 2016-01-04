@@ -28,7 +28,7 @@ public class MostradorDao {
 		Connection connection = new ConnectionMysql().createConnection();
 		ArrayList<Turno> turnos = new ArrayList<Turno>();
 
-		String query = "select * from SAt.turno  inner join SAT.sector on SAt.turno.id_sector =SAt.sector.id_sector where llamado ='SI' and  DATE(fecha_atencion) = DATE( NOW()) order by fecha_atencion desc limit 5";
+		String query = "select * from turnero.turno  inner join turnero.sector on turnero.turno.id_sector =turnero.sector.id_sector where llamado ='SI' and  DATE(fecha_atencion) = DATE( NOW()) order by fecha_atencion desc limit 5";
 		PreparedStatement preparedStmt;
 		try {
 			preparedStmt = connection.prepareStatement(query);
@@ -67,7 +67,7 @@ public class MostradorDao {
 		Connection connection = new ConnectionMysql().createConnection();
 		String urlFeed = "";
 
-		String query = "SELECT feed FROM SAT.configuracion";
+		String query = "SELECT feed FROM turnero.configuracion";
 		PreparedStatement preparedStmt;
 		try {
 			preparedStmt = connection.prepareStatement(query);
@@ -101,7 +101,7 @@ public class MostradorDao {
 		Connection connection = new ConnectionMysql().createConnection();
 		Configuracion configuracion = new Configuracion();
 
-		String query = "SELECT tiempogif,tiempopngjpg FROM SAT.configuracion";
+		String query = "SELECT tiempogif,tiempopngjpg FROM turnero.configuracion";
 		PreparedStatement preparedStmt;
 		try {
 			preparedStmt = connection.prepareStatement(query);
@@ -138,7 +138,7 @@ public class MostradorDao {
 		Connection connection = new ConnectionMysql().createConnection();
 		String urlPublicidad = "";
 
-		String query = "SELECT directorio FROM SAT.configuracion";
+		String query = "SELECT directorio FROM turnero.configuracion";
 		PreparedStatement preparedStmt;
 		try {
 			preparedStmt = connection.prepareStatement(query);

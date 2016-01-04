@@ -28,7 +28,7 @@ public class UsuarioDao {
 		ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 		LOGGER.debug(LoggerVariables.PREPARANDO_BUSCAR);
 
-		String query = "SELECT * FROM sat.usuario INNER JOIN sat.perfil ON sat.usuario.id_perfil = sat.perfil.id_perfil";
+		String query = "SELECT * FROM turnero.usuario INNER JOIN turnero.perfil ON turnero.usuario.id_perfil = turnero.perfil.id_perfil";
 
 		PreparedStatement preparedStmt;
 		try {
@@ -79,12 +79,12 @@ public class UsuarioDao {
 		Connection connection = new ConnectionMysql().createConnection();
 		LOGGER.debug(LoggerVariables.PREPARANDO_EDIT);
 
-		String queryCantidadAdministradores = "Select * from sat.usuario inner join sat.perfil on sat.usuario.id_perfil =sat.perfil.id_perfil where sat.perfil.nom_perfil ='Admin'and sat.usuario.Habilitado ='SI' and sat.usuario.id_usuario <> "
+		String queryCantidadAdministradores = "Select * from turnero.usuario inner join turnero.perfil on turnero.usuario.id_perfil =turnero.perfil.id_perfil where turnero.perfil.nom_perfil ='Admin'and turnero.usuario.Habilitado ='SI' and turnero.usuario.id_usuario <> "
 				+ usuarioEditar.getDT_RowId();
-		String query = "update sat.usuario set nom_usuario = ?, password = ?,  id_perfil = ?,  habilitado = ?  where id_usuario = ? ";
+		String query = "update turnero.usuario set nom_usuario = ?, password = ?,  id_perfil = ?,  habilitado = ?  where id_usuario = ? ";
 		// String
-		// queryPuesto="Select * from SAT.puesto where id_puesto ="+usuarioEditar.getPuestoId();
-		String queryPerfil = "Select * from sat.perfil where id_perfil ="
+		// queryPuesto="Select * from turnero.puesto where id_puesto ="+usuarioEditar.getPuestoId();
+		String queryPerfil = "Select * from turnero.perfil where id_perfil ="
 				+ usuarioEditar.getPerfilId();
 		PreparedStatement preparedStmt;
 		// PreparedStatement preparedStmtPuesto ;
@@ -190,10 +190,10 @@ public class UsuarioDao {
 		Connection connection = new ConnectionMysql().createConnection();
 		LOGGER.debug(LoggerVariables.PREPARANDO_INSERT);
 
-		String query = "insert into sat.usuario (nom_usuario,password,id_perfil,fecha,habilitado) values(?,?,?,DATE( NOW() ),?) ";
+		String query = "insert into turnero.usuario (nom_usuario,password,id_perfil,fecha,habilitado) values(?,?,?,DATE( NOW() ),?) ";
 		// String
-		// queryPuesto="Select * from SAT.puesto where id_puesto ="+usuarioInsertar.getPuestoId();
-		String queryPerfil = "Select * from sat.perfil where id_perfil ="
+		// queryPuesto="Select * from turnero.puesto where id_puesto ="+usuarioInsertar.getPuestoId();
+		String queryPerfil = "Select * from turnero.perfil where id_perfil ="
 				+ usuarioInsertar.getPerfilId();
 		PreparedStatement preparedStmt;
 		PreparedStatement preparedStmtPerfil;
@@ -265,7 +265,7 @@ public class UsuarioDao {
 		Connection connection = new ConnectionMysql().createConnection();
 		LOGGER.debug(LoggerVariables.PREPARANDO_DELETE);
 
-		String query = "delete from sat.usuario where id_usuario= ? ";
+		String query = "delete from turnero.usuario where id_usuario= ? ";
 		PreparedStatement preparedStmt;
 		try {
 			preparedStmt = connection.prepareStatement(query);
@@ -307,7 +307,7 @@ public class UsuarioDao {
 		ArrayList<UsuarioSector> usuariosSector = new ArrayList<UsuarioSector>();
 		LOGGER.debug(LoggerVariables.PREPARANDO_BUSCAR);
 
-		String query = "SELECT * FROM SAT.usuario_sector INNER JOIN SAT.usuario ON SAT.usuario.id_usuario = SAT.usuario_sector.id_usuario INNER JOIN SAT.sector ON SAT.usuario_sector.id_sector = SAT.sector.id_sector";
+		String query = "SELECT * FROM turnero.usuario_sector INNER JOIN turnero.usuario ON turnero.usuario.id_usuario = turnero.usuario_sector.id_usuario INNER JOIN turnero.sector ON turnero.usuario_sector.id_sector = turnero.sector.id_sector";
 
 		PreparedStatement preparedStmt;
 		try {
@@ -353,7 +353,7 @@ public class UsuarioDao {
 		Connection connection = new ConnectionMysql().createConnection();
 		LOGGER.debug(LoggerVariables.PREPARANDO_DELETE);
 
-		String query = "delete from sat.usuario_sector where id=?";
+		String query = "delete from turnero.usuario_sector where id=?";
 		PreparedStatement preparedStmt;
 		try {
 			preparedStmt = connection.prepareStatement(query);
@@ -389,10 +389,10 @@ public class UsuarioDao {
 		Connection connection = new ConnectionMysql().createConnection();
 		LOGGER.debug(LoggerVariables.PREPARANDO_INSERT);
 
-		String query = "insert into sat.usuario_sector (id_usuario,id_sector) values(?,?) ";
-		String querySector = "Select * from SAT.sector where id_sector ="
+		String query = "insert into turnero.usuario_sector (id_usuario,id_sector) values(?,?) ";
+		String querySector = "Select * from turnero.sector where id_sector ="
 				+ usuarioSectorInsertar.getSectorId();
-		String queryUsuario = "Select * from SAT.usuario where id_usuario ="
+		String queryUsuario = "Select * from turnero.usuario where id_usuario ="
 				+ usuarioSectorInsertar.getUsuarioId();
 		PreparedStatement preparedStmt;
 		PreparedStatement preparedStmtSector;
@@ -458,10 +458,10 @@ public class UsuarioDao {
 		Connection connection = new ConnectionMysql().createConnection();
 		LOGGER.debug(LoggerVariables.PREPARANDO_EDIT);
 
-		String query = "update SAT.usuario_sector set id_usuario = ?,   id_sector = ?  where id = ? ";
-		String querySector = "Select * from SAT.sector where id_sector ="
+		String query = "update turnero.usuario_sector set id_usuario = ?,   id_sector = ?  where id = ? ";
+		String querySector = "Select * from turnero.sector where id_sector ="
 				+ usuarioSectorEditar.getSectorId();
-		String queryUsuario = "Select * from SAT.usuario where id_usuario ="
+		String queryUsuario = "Select * from turnero.usuario where id_usuario ="
 				+ usuarioSectorEditar.getUsuarioId();
 		PreparedStatement preparedStmt;
 		PreparedStatement preparedStmtSector;

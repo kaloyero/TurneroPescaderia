@@ -28,7 +28,7 @@ public class LoginDao {
 		Connection connection = (Connection) new ConnectionMysql()
 				.createConnection();
 
-		String query = "SELECT * from sat.usuario  WHERE nom_usuario = ? and  password like ? and habilitado like 'SI' ";
+		String query = "SELECT * from turnero.usuario  WHERE nom_usuario = ? and  password like ? and habilitado like 'SI' ";
 		try {
 			LOGGER.debug(LoggerVariables.INICIANDO);
 			if (connection != null) {

@@ -52,8 +52,8 @@ public class ActualizarTurno {
 		try {
 
 			// String query =
-			// "SELECT * from SAT.turno  WHERE id_sector = ? AND numero_turno des ";
-			String query = "SELECT * from SAT.turno  WHERE id_sector = ? and DATE(fecha_ticket) = DATE( NOW() ) order by numero_turno asc ";
+			// "SELECT * from turnero.turno  WHERE id_sector = ? AND numero_turno des ";
+			String query = "SELECT * from turnero.turno  WHERE id_sector = ? and DATE(fecha_ticket) = DATE( NOW() ) order by numero_turno asc ";
 
 			PreparedStatement preparedStmt = connection.prepareStatement(query);
 			preparedStmt.setInt(1, sector);
@@ -76,7 +76,7 @@ public class ActualizarTurno {
 			String cod_sector = rolSector.getNro_sectores().get(0);
 			LOGGER.debug("Insertando nuevo registro en la base");
 
-			query = " insert into SAT.turno (id_sector, numero_turno ,id_cod_sector,fecha_ticket, fecha_atencion, fecha_fin, id_usuario, id_puesto,atendido,llamado)"
+			query = " insert into turnero.turno (id_sector, numero_turno ,id_cod_sector,fecha_ticket, fecha_atencion, fecha_fin, id_usuario, id_puesto,atendido,llamado)"
 					+ " values (  ?, ?, ?,? ,?, ?, ?, ?,?,?)";
 
 			preparedStmt = connection.prepareStatement(query);
@@ -97,7 +97,7 @@ public class ActualizarTurno {
 
 			// actualiza el llamado
 			// query =
-			// "update SAT.turno set numer_turno = ?, id_usuario = ?,  llamado = ?,  id_puesto = ?  where id_turno = ? ";
+			// "update turnero.turno set numer_turno = ?, id_usuario = ?,  llamado = ?,  id_puesto = ?  where id_turno = ? ";
 
 			// PreparedStatement preparedStmt2 =
 			// connection.prepareStatement(query);
@@ -175,7 +175,7 @@ public class ActualizarTurno {
 		int turnosDelante=0;
 		LOGGER.debug("Calculando turnos por delante");
 
-		String query = "SELECT count(*) from SAT.turno  WHERE id_sector = ? and atendido='NO'  and llamado like 'NO'  and  DATE(fecha_ticket) = DATE( NOW() ) ";
+		String query = "SELECT count(*) from turnero.turno  WHERE id_sector = ? and atendido='NO'  and llamado like 'NO'  and  DATE(fecha_ticket) = DATE( NOW() ) ";
 
 		PreparedStatement preparedStmt = connection.prepareStatement(query);
 		preparedStmt.setInt(1, sector);
