@@ -22,11 +22,6 @@
 	<classpathentry kind="var" path="M2_REPO/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar" sourcepath="M2_REPO/javax/servlet/servlet-api/2.5/servlet-api-2.5-sources.jar"/>
 	<classpathentry kind="var" path="M2_REPO/javax/servlet/jsp/jsp-api/2.1/jsp-api-2.1.jar"/>
 	<classpathentry kind="var" path="M2_REPO/javax/transaction/jta/1.1/jta-1.1.jar" sourcepath="M2_REPO/javax/transaction/jta/1.1/jta-1.1-sources.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.7.0_79">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="var" path="M2_REPO/org/springframework/boot/spring-boot-starter-web/1.1.1.RELEASE/spring-boot-starter-web-1.1.1.RELEASE.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/springframework/boot/spring-boot-starter/1.1.1.RELEASE/spring-boot-starter-1.1.1.RELEASE.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/springframework/boot/spring-boot/1.1.1.RELEASE/spring-boot-1.1.1.RELEASE.jar"/>
@@ -67,6 +62,11 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/wsKaizen/Examples_x64/GiovynetDriver_2.0_x64/GiovynetDriver.jar"/>
+	<classpathentry kind="lib" path="C:/wsKaizenPescaderia/TurneroPescaderia/SAT-ControlRemoto/GiovynetDriver_2.0_x64/GiovynetDriver.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.7.0_07">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
