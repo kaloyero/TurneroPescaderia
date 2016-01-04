@@ -1,0 +1,80 @@
+.html5gallery-box-0, .html5gallery-box-1, .html5gallery-box-2,
+	.html5gallery-box-3, .html5gallery-box-4, .html5gallery-box-5, .html5gallery-box-6,
+	.html5gallery-box-7, .html5gallery-box-8 {
+	width: 100% !important;
+	height: auto !important;
+}
+
+.html5gallery-container-0, .html5gallery-container-1,
+	.html5gallery-container-2, .html5gallery-container-3, .html5gallery-container-4, .html5gallery-container-5, .html5gallery-container-6, .html5gallery-container-7 {
+	width: 100% !important;
+	height: auto !important;
+}
+
+.html5gallery {
+	width: 100% !important;
+	height: auto !important;
+}
+
+.html5gallery-elem-video-0, .html5gallery-elem-video-1,
+	.html5gallery-elem-video-2, .html5gallery-elem-video-3, .html5gallery-elem-video-4,
+	.html5gallery-elem-video-5, .html5gallery-elem-video-6, .html5gallery-elem-video-7 {
+	width: 100% !important;
+	height: 430px !important;
+}
+
+.html5gallery-elem-image-0, .html5gallery-elem-image-1,
+	.html5gallery-elem-image-2, .html5gallery-elem-image-3, .html5gallery-elem-image-4 {
+	width: 100% !important;
+	height: 430px !important;
+}
+
+video {
+	width: 100% !important;
+	height: 430px !important;
+}
+
+.html5gallery-elem-0, .html5gallery-elem-1, .html5gallery-elem-2,
+	.html5gallery-elem-3, .html5gallery-elem-4, .html5gallery-elem-5 {
+	width: 100% !important;
+	height: 430px !important;
+}
+
+iframe {
+	width: 100% !important;
+	height: 430px !important;
+}
+
+#mygallery{
+	width: 100% !important;
+	height: 430px !important;
+}
+
+@media ( max-width : 1400px) {
+	.contenedor-fix {
+		margin-top: 4% !important;
+	}
+}
+
+@media ( min-width : 1400px) {
+	.contenedor {
+		margin-top: 7% !important;
+	}
+	.contenedor-fix {
+		margin-top: 11% !important;
+	}
+	.html5gallery-elem-video-0, .html5gallery-elem-video-1,
+		.html5gallery-elem-video-2, .html5gallery-elem-video-3 {
+		width: 100% !important;
+		height: 530px !important;
+	}
+	.html5gallery-elem-0, .html5gallery-elem-1, .html5gallery-elem-2,
+		.html5gallery-elem-3, .html5gallery-elem-4, .html5gallery-elem-5 {
+		width: 100% !important;
+		height: 530px !important;
+	}
+	iframe {
+		width: 100% !important;
+		height: 530px !important;
+	}
+}

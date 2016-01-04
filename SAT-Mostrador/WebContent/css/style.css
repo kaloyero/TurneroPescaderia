@@ -1,0 +1,45 @@
+body {
+	background: url(http://ruggemar.com.ar/wp-content/uploads/2015/05/03.jpg) repeat;
+}
+
+.navbar {
+	background-image: url(http://ruggemar.com.ar/wp-content/uploads/2015/05/bg-red.jpg);
+}
+
+
+.izq {
+	background-color: rgba(255, 255, 255, 0.8);
+	min-height: 445px;
+	padding: 15px;
+}
+
+
+.izq .primero{
+	min-height: 160px;
+	margin-bottom: 15px;
+	font-size: 84px;
+}
+
+.izq .otros{
+	height: 55px;
+	font-size: 27px;
+}
+.der {
+	min-height: 400px;
+}
+
+.marq {
+		background-color: rgba(255, 255, 255, 0.8);
+		min-height: 45px;
+		margin-top: 20px;
+}
+
+.marq p {
+	text-align: center;
+    padding-top: 12px;
+    font-size: 20px;
+}
+
+.marq p strong{
+	color: #751F12;
+}
