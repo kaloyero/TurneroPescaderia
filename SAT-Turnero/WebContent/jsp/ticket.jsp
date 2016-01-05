@@ -24,8 +24,8 @@ body:after {
 	<!--					<div class="numero">N&uacute;mero</div> -->
 						<div class="numero-var"><s:property value="nro_ticket"/></div>
 <!--						<div class="dates">Tiene <strong><s:property value="turnosDelante"/></strong> turnos por delante.</div> -->
-<!-- 						<div class="dates">Espera estimada: <strong>XX</strong> minutos</div> 
-						<div class="dates">Muchas gracias por aguardar.</div> -->
+<!-- 						<div class="dates">Espera estimada: <strong>XX</strong> minutos</div> --> 
+						<div class="dates">Muchas gracias por aguardar.</div> 
 					</div>
 				</div>
 		</div>

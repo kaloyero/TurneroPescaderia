@@ -35,7 +35,7 @@ public class AtendiendoAction extends AbstractLoginAction {
 
 			return ERROR + "null";
 		}
-		return "";
+		return "success";
 	}
 
 	public String getCodigoControl() {

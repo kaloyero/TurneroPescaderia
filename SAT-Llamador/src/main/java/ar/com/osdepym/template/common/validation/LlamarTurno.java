@@ -16,6 +16,9 @@ import ar.com.osdepym.common.utils.LoggerVariables;
 
 public abstract class LlamarTurno {
 
+	private static Logger LOGGER = Logger.getLogger(LoggerVariables.OPERADOR
+			+ "-" + LlamarTurno.class);
+	
 	protected synchronized int getSectorByControl( int codigoControl) {
 		int sector  = 0;
 		Connection connection = new ConnectionMysql().createConnection();
@@ -103,6 +106,46 @@ public abstract class LlamarTurno {
 
 		}
 		return idControl;
+	}
+	
+	protected synchronized void callTurnoSiguiente( int idControl, int id_turno) throws SQLException {
+		Connection connection = new ConnectionMysql().createConnection();
+
+		//FEcha actual
+		Date fechaDate = new Date();
+		java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat(
+				"yyyy-MM-dd HH:mm:ss");
+		String fecha = sdf.format(fechaDate);
+		
+		// actualiza el llamado
+		String query = "update turnero.turno set fecha_atencion = ?, idControl = ?,  llamado = ?  where id_turno = ? ";
+
+		PreparedStatement preparedStmt2 = connection
+				.prepareStatement(query);
+		preparedStmt2.setString(1, fecha);
+		preparedStmt2.setInt(2, idControl);
+		preparedStmt2.setString(3, "SI"); //
+		preparedStmt2.setInt(4, id_turno);
+		preparedStmt2.executeUpdate();
+
+		preparedStmt2.close();	
+		LOGGER.debug("Se ha actualizado la tabla de Turnos");
+		
+	}
+	
+	protected synchronized void callTurnoAnterior( int id_turno) throws SQLException {
+		Connection connection = new ConnectionMysql().createConnection();
+		/* El ultimo que llamó lo pongo como que no fuè llamado */
+		String query = "update turnero.turno set idControl = ?,  llamado = ?  where id_turno = ? ";
+		PreparedStatement preparedStmt2 = connection
+				.prepareStatement(query);
+//		preparedStmt2.setString(1, null);
+		preparedStmt2.setInt(1, 0);
+		preparedStmt2.setString(2, "NO"); //
+		preparedStmt2.setInt(3, id_turno);
+		preparedStmt2.executeUpdate();
+		preparedStmt2.close();
+		
 	}
 	
 }

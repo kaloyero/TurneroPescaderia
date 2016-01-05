@@ -38,13 +38,6 @@ public class LlamarTurnoSiguiente extends LlamarTurno {
 		
 		Connection connection = new ConnectionMysql().createConnection();
 
-		Date fechaDate = new Date();
-		java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat(
-				"yyyy-MM-dd HH:mm:ss");
-
-		String fecha = sdf.format(fechaDate);
-		System.out.println("Fecha " + fecha);
-
 		String error = "";
 		try {
 	
@@ -63,24 +56,12 @@ public class LlamarTurnoSiguiente extends LlamarTurno {
 				break;
 			}
 			
-			// actualiza el llamado
-			query = "update turnero.turno set fecha_atencion = ?, idControl = ?,  llamado = ?  where id_turno = ? ";
-
-			PreparedStatement preparedStmt2 = connection
-					.prepareStatement(query);
-			preparedStmt2.setString(1, fecha);
-			preparedStmt2.setInt(2, getIdControlByCodigoControl(codigoControl));
-			preparedStmt2.setString(3, "SI"); //
-			preparedStmt2.setInt(4, id_turno);
-			preparedStmt2.executeUpdate();
+			int idControl = getIdControlByCodigoControl(codigoControl);
+			
+			/* LLAMA AL SIGUIENTE TURNO*/
+			callTurnoSiguiente(idControl, id_turno );
 
 			preparedStmt.close();
-			preparedStmt2.close();
-
-			LOGGER.debug("Se ha actualizado la tabla de Turnos");
-
-			// actualiza la tabla de turnos
-			System.out.println("Actualizo la tabla de turnos id " + id_turno);
 
 		} catch (SQLException e) {
 			LOGGER.error(LoggerVariables.ERROR + "-" + e.getMessage());

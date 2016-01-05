@@ -19,6 +19,7 @@ public class AtendiendoAnteriorAction extends AbstractLoginAction {
 
 	/**
 	 * Llama al siguiente turno
+	 * @return 
 	 */
 	public String execute() {
 		try {
@@ -33,7 +34,7 @@ public class AtendiendoAnteriorAction extends AbstractLoginAction {
 
 			return ERROR + "null";
 		}
-		return "";
+		return "success";
 	}
 
 	public String getCodigoControl() {

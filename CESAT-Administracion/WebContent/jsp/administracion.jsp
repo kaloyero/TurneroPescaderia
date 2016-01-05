@@ -308,6 +308,7 @@ table.dataTable tr.selected td:first-child:before {
 									});
 							console.log("PASA CONTROL1")
 	editorControlesRemoto = new $.fn.dataTable.Editor(
+
 									{
 										ajax : "controlesRemotoOperaciones.action",
 										table : "#example8",
@@ -583,7 +584,10 @@ table.dataTable tr.selected td:first-child:before {
 									typeReturn = false;
 									console.log("ENTRO AH SI SI")
 								} 
-								console.log("dev",typeReturn)
+								console.log("Jujuuuaaale",typeReturn)
+								createEditors()
+								console.log("LISO")
+//								validarControlRemotoSector(e, o)
 
 								return typeReturn;
 

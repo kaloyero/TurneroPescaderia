@@ -6,7 +6,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Date;
 
 import org.apache.log4j.Logger;
@@ -56,30 +55,22 @@ public class LlamarTurnoAnterior extends LlamarTurno{
 
 			ResultSet rs = preparedStmt.executeQuery();
 
-			int id_turno = 0;
-			while (rs.next()) {
-				id_turno = rs.getInt("id_turno");
-				break;
+			int id_turno_retroceder = getTurnoId(rs);
+
+			/* TURNO ANTERIOR: Retrocedo el id de turno. lo pongo como que no fue llamado*/
+			callTurnoAnterior(id_turno_retroceder);
+
+			/* LLAMA AL SIGUIENTE TURNO*/
+			//Obtengo el turno anteriormente llamado por ese Sector
+			int id_turno_proximo = getTurnoId(rs);
+			if (id_turno_proximo > 0){
+				int idControl = getIdControlByCodigoControl(codigoControl);
+				callTurnoSiguiente(idControl, id_turno_proximo );
 			}
-			
-			// actualiza el llamado
-//			query = "update turnero.turno set fecha_atencion = ?, idControl = ?,  llamado = ?  where id_turno = ? ";
-			query = "update turnero.turno set idControl = ?,  llamado = ?  where id_turno = ? ";
-			PreparedStatement preparedStmt2 = connection
-					.prepareStatement(query);
-//			preparedStmt2.setString(1, null);
-			preparedStmt2.setInt(1, 0);
-			preparedStmt2.setString(2, "NO"); //
-			preparedStmt2.setInt(3, id_turno);
-			preparedStmt2.executeUpdate();
-
-			preparedStmt.close();
-			preparedStmt2.close();
-
-			LOGGER.debug("Se ha actualizado la tabla de Turnos");
 
 			// actualiza la tabla de turnos
-			System.out.println("Actualizo la tabla de turnos id " + id_turno);
+			System.out.println("ANTERIOR: Turno id que se retrocede " + id_turno_retroceder);
+			System.out.println("ANTERIOR: Turno id proximo a llamar " + id_turno_proximo);
 
 		} catch (SQLException e) {
 			LOGGER.error(LoggerVariables.ERROR + "-" + e.getMessage());
@@ -109,6 +100,15 @@ public class LlamarTurnoAnterior extends LlamarTurno{
 
 		}
 		return "OK";
+	}
+	
+	private int getTurnoId(ResultSet rs) throws SQLException{
+		int id_turno = 0;
+		while (rs.next()) {
+			id_turno = rs.getInt("id_turno");
+			break;
+		}
+		return id_turno;
 	}
 
 }
