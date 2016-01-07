@@ -1,9 +1,10 @@
 *.class
-/target
-/.settings
-.project
-.tern-project
-.classpath
+*/target
+*/.settings
+*/build/classes
+*.project
+*.tern-project
+*.classpath
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
