@@ -3,20 +3,25 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Struts 2 Web Application</display-name>
-  
-  <filter>
-	<filter-name>struts2</filter-name>
-	<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
-  </filter>
-  
-  <filter-mapping>
-	<filter-name>struts2</filter-name>
-	<url-pattern>/*</url-pattern>
-  </filter-mapping>
-  
-  <welcome-file-list>
-  	<welcome-file>/jsp/index.jsp</welcome-file>
-  </welcome-file-list>
-  
+	<display-name>Struts 2 Web Application</display-name>
+
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<welcome-file-list>
+		<welcome-file>/jsp/index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<error-page>
+		<!-- Missing login -->
+		<error-code>404</error-code>
+		<location>/js/errorPage.html</location>
+	</error-page>
 </web-app>

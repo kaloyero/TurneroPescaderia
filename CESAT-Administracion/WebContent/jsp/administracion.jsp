@@ -350,7 +350,10 @@ table.dataTable tr.selected td:first-child:before {
 
 								return validarControlRemoto(e, o)
 							})	
-							
+							editorControlesRemoto.on("postSubmit", function(e, o) {
+								console.log("oTableControlSectores",oTableControlSectores)
+								oTableControlSectores.ajax.reload();
+							})	
 							
 							
 							oTableControlRemoto = $('#example8')
@@ -571,7 +574,9 @@ table.dataTable tr.selected td:first-child:before {
 
 								return validarSector(e, o)
 							})
-						
+							editorSectores.on("postSubmit", function(e, o) {
+								oTableControlSectores.ajax.reload();
+							})							
 						
 						function validarControlRemoto(e, o) {
 								var typeReturn = true
@@ -584,10 +589,6 @@ table.dataTable tr.selected td:first-child:before {
 									typeReturn = false;
 									console.log("ENTRO AH SI SI")
 								} 
-								console.log("Jujuuuaaale",typeReturn)
-								createEditors()
-								console.log("LISO")
-//								validarControlRemotoSector(e, o)
 
 								return typeReturn;
 
