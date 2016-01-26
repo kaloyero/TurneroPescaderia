@@ -1,9 +1,9 @@
 body {
-	background: url(http://ruggemar.com.ar/wp-content/uploads/2015/05/03.jpg) repeat;
+	background: url(../images/fondo.jpg) repeat;
 }
 
 .navbar {
-	background-image: url(http://ruggemar.com.ar/wp-content/uploads/2015/05/bg-red.jpg);
+	background-image: url(../images/bg-red.jpg);
 }
 
 

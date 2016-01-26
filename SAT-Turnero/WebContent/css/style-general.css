@@ -10,7 +10,7 @@ body:after {
   width: 108%;
   height: 100%;
   z-index: -1;
-  background: url(http://ruggemar.com.ar/wp-content/uploads/2015/05/03.jpg) repeat center center fixed;
+  background: url(../images/fondo.jpg) repeat center center fixed;
   background-size:100% auto; 
   // background-size:  background-size[, background-size]*;
   opacity: 0.4;
@@ -47,7 +47,7 @@ body:after {
 }
 */
 .navbar {
-	background-image: url(http://ruggemar.com.ar/wp-content/uploads/2015/05/bg-red.jpg);
+	background-image: url(../images/bg-red.jpg);
 }
 
 

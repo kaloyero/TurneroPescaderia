@@ -94,7 +94,7 @@ input[type='checkbox']:checked+label {
 				<div class="row">
 					<div class="col-lg-4 col-lg-offset-4">
 						<img class="logo-sticky scale-with-grid"
-							src="http://ruggemar.com.ar/wp-content/uploads/2015/05/logo-steakhouse2.png"
+							src="images/logo-steakhouse2.png"
 							alt="">
 				<div id="reloj" align="right"
 					style="font-weight: 900;    font-size: 40px;    color: #F7F7F5;    /* right: 150px; */    top: -65px;    opacity: 0.9;    position: relative;    margin-right: 50px;     height: 10px;"></div>
