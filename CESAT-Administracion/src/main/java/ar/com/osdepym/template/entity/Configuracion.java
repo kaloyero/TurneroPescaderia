@@ -12,6 +12,7 @@ public class Configuracion {
 	private int tiempogif ;
 	private String directorio ;
 	private String feed ;
+	private String image="2" ;
 
 
 	private String error;

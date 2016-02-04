@@ -500,6 +500,9 @@ table.dataTable tr.selected td:first-child:before {
 										},{
 											label : "Feed URL",
 											name : "feed"
+										} ,{
+											label : "Imagen mostrador fondo",
+											name : "image"
 										}  
 
 
