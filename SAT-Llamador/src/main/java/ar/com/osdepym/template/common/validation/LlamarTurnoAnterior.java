@@ -28,12 +28,12 @@ public class LlamarTurnoAnterior extends LlamarTurno{
 	 * @param sector
 	 * @param control
 	 */
-	public synchronized String execute( int codigoControl) {
+	public synchronized String execute( int idControl) {
 
 		LOGGER.debug(LoggerVariables.PREPARANDO_LLAMAR);
 
 		//obtengo el sector
-		int sector = getSectorByControl(codigoControl); 
+		int sector = getSectorByControl(idControl); 
 		
 		Connection connection = new ConnectionMysql().createConnection();
 
@@ -64,7 +64,6 @@ public class LlamarTurnoAnterior extends LlamarTurno{
 			//Obtengo el turno anteriormente llamado por ese Sector
 			int id_turno_proximo = getTurnoId(rs);
 			if (id_turno_proximo > 0){
-				int idControl = getIdControlByCodigoControl(codigoControl);
 				callTurnoSiguiente(idControl, id_turno_proximo );
 			}
 

@@ -40,6 +40,8 @@ public class ControlRemotoDao {
 				control.setDT_RowId(rs.getInt("id"));
 				
 				control.setCodigo(rs.getString("codigo"));
+				control.setAnterior(rs.getInt("anterior"));
+				control.setSiguiente(rs.getInt("siguiente"));
 				controlesRemotos.add(control);
 			}
 
@@ -68,7 +70,7 @@ public class ControlRemotoDao {
 	 */
 	public ControlRemoto editarControlRemoto(ControlRemoto controlEditar) {
 		Connection connection = new ConnectionMysql().createConnection();
-		String query = "update turnero.controlremoto set codigo = ? where id = ? ";
+		String query = "update turnero.controlremoto set codigo = ? , anterior = ? , siguiente = ? where id = ? ";
 		PreparedStatement preparedStmt;
 		LOGGER.debug(LoggerVariables.PREPARANDO_EDIT);
 
@@ -76,7 +78,9 @@ public class ControlRemotoDao {
 			preparedStmt = connection.prepareStatement(query);
 			// preparedStmt.setInt(1, sectorEditar.getSector());
 			preparedStmt.setString(1, controlEditar.getCodigo());
-			preparedStmt.setInt(2, controlEditar.getDT_RowId());
+			preparedStmt.setInt(2, controlEditar.getAnterior());
+			preparedStmt.setInt(3, controlEditar.getSiguiente());
+			preparedStmt.setInt(4, controlEditar.getDT_RowId());
 			preparedStmt.executeUpdate();
 			return controlEditar;
 			// Recupero la fila cambiada
@@ -116,7 +120,7 @@ public class ControlRemotoDao {
 	 */
 	public ControlRemoto insertarControlRemoto(ControlRemoto controlInsertar) {
 		Connection connection = new ConnectionMysql().createConnection();
-		String query = "insert into turnero.controlremoto (codigo) values(?) ";
+		String query = "insert into turnero.controlremoto (codigo,anterior,siguiente) values(?,?,?) ";
 		LOGGER.debug(LoggerVariables.PREPARANDO_INSERT);
 
 		PreparedStatement preparedStmt;
@@ -124,6 +128,8 @@ public class ControlRemotoDao {
 			preparedStmt = connection.prepareStatement(query,
 					Statement.RETURN_GENERATED_KEYS);
 			preparedStmt.setString(1, controlInsertar.getCodigo());
+			preparedStmt.setInt(2, controlInsertar.getAnterior());
+			preparedStmt.setInt(3, controlInsertar.getSiguiente());
 
 			preparedStmt.execute();
 			ResultSet generatedKeys = preparedStmt.getGeneratedKeys();

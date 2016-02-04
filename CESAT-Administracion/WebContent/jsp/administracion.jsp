@@ -319,7 +319,16 @@ table.dataTable tr.selected td:first-child:before {
 										{
 											label : "Codigo:",
 											name : "codigo"
-										} ],
+										} ,
+										{
+											label : "Boton Anterior:",
+											name : "anterior"
+										} ,
+										{
+											label : "Boton Siguiente:",
+											name : "siguiente"
+										} 
+										],
 										i18n : {
 											create : {
 												button : "Nuevo",
@@ -379,6 +388,10 @@ table.dataTable tr.selected td:first-child:before {
 											data : "DT_RowId"
 										}, {
 											data : "codigo"
+										}, {
+											data : "anterior"
+										}, {
+											data : "siguiente"
 										} ],
 										order : [ 1, 'asc' ],
 										tableTools : {
@@ -589,6 +602,18 @@ table.dataTable tr.selected td:first-child:before {
 									typeReturn = false;
 									console.log("ENTRO AH SI SI")
 								} 
+								if (o.data.anterior === "") {
+									editorControlesRemoto.error("anterior",
+											"Campo Requerido")
+									typeReturn = false;
+									console.log("ENTRO AH SI SI")
+								} 
+								if (o.data.siguiente === "") {
+									editorControlesRemoto.error("siguiente",
+											"Campo Requerido")
+									typeReturn = false;
+									console.log("ENTRO AH SI SI")
+								} 
 
 								return typeReturn;
 
@@ -762,6 +787,8 @@ table.dataTable tr.selected td:first-child:before {
 								
 									control.value = oTableControlRemoto.data()[i]["DT_RowId"]
 									control.label = oTableControlRemoto.data()[i]["codigo"]
+// 									control.label = oTableControlRemoto.data()[i]["anterior"]
+// 									control.label = oTableControlRemoto.data()[i]["siguiente"]
 									controles.push(control);
 								
 
@@ -895,6 +922,8 @@ table.dataTable tr.selected td:first-child:before {
 						<th>
 						<th>Id</th>
 						<th>Codigo</th>
+						<th>Botón Anterior</th>
+						<th>Botón Siguiente</th>
 
 					</tr>
 				</thead>

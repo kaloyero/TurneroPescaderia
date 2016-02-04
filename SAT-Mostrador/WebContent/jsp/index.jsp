@@ -98,6 +98,7 @@ iframe {
 	}
 
 	var ultimoNumeroLlamado = 0;
+	var ultimoNumeroLlamadoSec2 = 0;
 	$(document)
 			.ready(
 					function() {
@@ -136,6 +137,9 @@ iframe {
 													.html(
 															data.listaTurnos[0].nombreSector +'<BR>'+ data.listaTurnos[0].numeroTurno
 															)
+											$('.segundo')
+													.html(
+															data.listaTurnos[1].nombreSector +'<BR>'+ data.listaTurnos[1].numeroTurno)
 
 											if (data.listaTurnos[0].numeroTurno != ultimoNumeroLlamado) {
 												ultimoNumeroLlamado = data.listaTurnos[0].numeroTurno;
@@ -147,30 +151,49 @@ iframe {
 													$('.primero')
 															.animate(
 																	{
-																		backgroundColor : "#A9A9F5"
+																		backgroundColor : "#rgb(208, 216, 181)"
 																	}, 800)
 															.animate(
 																	{
 																		backgroundColor : "#d9534f"
 																	}, 800)
+												}
+
+											}
+											if (data.listaTurnos[1].numeroTurno != ultimoNumeroLlamadoSec2) {
+												ultimoNumeroLlamadoSec2 = data.listaTurnos[1].numeroTurno;
+												playSound()
+												setTimeout(function() {
+												playSound();
+												 }, 7000);
+												for (i = 0; i < 5; i++) {
+													$('.segundo')
+															.animate(
+																	{
+																		backgroundColor : "#rgb(208, 216, 181)"
+																	}, 800)
+															.animate(
+																	{
+																		backgroundColor : "#eea236"
+																	}, 800)																	
 
 												}
 
 											}
 
 											//$('.primero').text(data.listaTurnos[0].sectorAtencion)
-											$('.segundo')
-													.html(
-															data.listaTurnos[1].nombreSector +' '+data.listaTurnos[1].numeroTurno)
-											$('.tercero')
-													.html(
-															data.listaTurnos[2].nombreSector +' '+data.listaTurnos[2].numeroTurno)
-											$('.cuarto')
-													.html(
-															data.listaTurnos[3].nombreSector +' '+data.listaTurnos[3].numeroTurno)
-											$('.quinto')
-													.html(
-															data.listaTurnos[4].nombreSector +' '+data.listaTurnos[4].numeroTurno)
+// 											$('.segundo')
+// 													.html(
+// 															data.listaTurnos[1].nombreSector +' '+data.listaTurnos[1].numeroTurno)
+// 											$('.tercero')
+// 													.html(
+// 															data.listaTurnos[2].nombreSector +' '+data.listaTurnos[2].numeroTurno)
+// 											$('.cuarto')
+// 													.html(
+// 															data.listaTurnos[3].nombreSector +' '+data.listaTurnos[3].numeroTurno)
+// 											$('.quinto')
+// 													.html(
+// 															data.listaTurnos[4].nombreSector +' '+data.listaTurnos[4].numeroTurno)
 
 										}
 
@@ -283,12 +306,12 @@ iframe {
 							class="btn btn-danger btn-lg btn-block primero"></button>
 						<button type="button"
 							class="btn btn-warning btn-lg btn-block segundo"></button>
-						<button type="button"
-							class="btn btn-warning btn-lg btn-block tercero"></button>
-						<button type="button"
-							class="btn btn-warning btn-lg btn-block cuarto"></button>
-						<button type="button"
-							class="btn btn-warning btn-lg btn-block quinto"></button>
+<!-- 						<button type="button" -->
+<!-- 							class="btn btn-warning btn-lg btn-block tercero"></button> -->
+<!-- 						<button type="button" -->
+<!-- 							class="btn btn-warning btn-lg btn-block cuarto"></button> -->
+<!-- 						<button type="button" -->
+<!-- 							class="btn btn-warning btn-lg btn-block quinto"></button> -->
 					</div>
 					<div class="col-lg-6 col-lg-offset-1 der">
 						<div id="contenedorGaleria">

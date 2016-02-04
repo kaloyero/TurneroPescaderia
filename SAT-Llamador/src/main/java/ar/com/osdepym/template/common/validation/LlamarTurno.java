@@ -6,7 +6,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Date;
 
 import org.apache.log4j.Logger;
@@ -19,15 +18,14 @@ public abstract class LlamarTurno {
 	private static Logger LOGGER = Logger.getLogger(LoggerVariables.OPERADOR
 			+ "-" + LlamarTurno.class);
 	
-	protected synchronized int getSectorByControl( int codigoControl) {
+	protected synchronized int getSectorByControl( int idControl) {
 		int sector  = 0;
 		Connection connection = new ConnectionMysql().createConnection();
 
 		try {
 
-			String query = "SELECT idControl, idSector, codigo FROM turnero.controlremoto_sector crs "
-					+ "inner join  turnero.controlremoto  cr "
-					+ "on (crs.idControl = cr.id AND cr.codigo like '"+ codigoControl +"') ";
+			String query = "SELECT idControl, idSector FROM turnero.controlremoto_sector crs "
+					+ " WHERE (crs.idControl = '"+ idControl +"') ";
 
 			PreparedStatement preparedStmt = connection.prepareStatement(query);
 

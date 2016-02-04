@@ -14,6 +14,14 @@
 		</result-types>
 		
 		<action name="llamarTurno"
+			class="ar.com.osdepym.template.web.action.AtencionAction" method="execute">
+			<result name="success">/jsp/homepage.jsp</result>
+			<result name="error">/jsp/errorSinDatos.jsp</result>
+			<result name="errornull">/jsp/errorPage.jsp</result>
+		</action>
+
+		
+<!--	<action name="llamarTurno"
 			class="ar.com.osdepym.template.web.action.AtendiendoAction" method="execute">
 			<result name="success">/jsp/homepage.jsp</result>
 			<result name="error">/jsp/errorSinDatos.jsp</result>
@@ -21,11 +29,12 @@
 		</action>
 		
 		<action name="llamarTurnoAnterior"
-			class="ar.com.osdepym.template.web.action.AtendiendoAnteriorAction" method="execute" >
+			class="ar.com.osdepym.template.web.action.AtendiendoAnteriorAction" method="execute">
 			<result name="success">/jsp/homepage.jsp</result>
 			<result name="error">/jsp/errorSinDatos.jsp</result>
 			<result name="errornull">/jsp/errorPage.jsp</result>
 		</action>
+ -->
 		
 		
 

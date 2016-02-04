@@ -47,6 +47,8 @@ public class ControlRemotoDatatableAction extends ActionSupport implements Param
 
 			ControlRemoto controlRemotoEditar= new ControlRemoto();
 			controlRemotoEditar.setCodigo(((String[]) parameters.get("data[codigo]"))[0].toUpperCase());
+			controlRemotoEditar.setAnterior(Integer.parseInt(((String[]) parameters.get("data[anterior]"))[0]));
+			controlRemotoEditar.setSiguiente(Integer.parseInt(((String[]) parameters.get("data[siguiente]"))[0]));
 			controlRemotoEditar.setDT_RowId(Integer.parseInt(((String[]) parameters.get("id"))[0]));			
 			this.setRow(this.getControlRemotoServicio().editarControlRemoto((controlRemotoEditar)));
 			this.setError(this.getRow().getError());
@@ -57,7 +59,8 @@ public class ControlRemotoDatatableAction extends ActionSupport implements Param
 
 			ControlRemoto controlRemotoInsertar= new ControlRemoto();
 			controlRemotoInsertar.setCodigo(((String[]) parameters.get("data[codigo]"))[0].toUpperCase());
-			
+			controlRemotoInsertar.setAnterior(Integer.parseInt(((String[]) parameters.get("data[anterior]"))[0]));
+			controlRemotoInsertar.setSiguiente(Integer.parseInt(((String[]) parameters.get("data[siguiente]"))[0]));
 			//sectorInsertar.setSector(Integer.parseInt(((String[]) parameters.get("data[sector]"))[0]));
 			this.setRow(this.getControlRemotoServicio().insertarControl(controlRemotoInsertar));
 			this.setError(this.getRow().getError());

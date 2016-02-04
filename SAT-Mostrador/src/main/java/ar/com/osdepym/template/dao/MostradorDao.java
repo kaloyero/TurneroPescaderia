@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 
@@ -28,18 +30,31 @@ public class MostradorDao {
 		Connection connection = new ConnectionMysql().createConnection();
 		ArrayList<Turno> turnos = new ArrayList<Turno>();
 
-		String query = "select * from turnero.turno  inner join turnero.sector on turnero.turno.id_sector =turnero.sector.id_sector where llamado ='SI' and  DATE(fecha_atencion) = DATE( NOW()) order by fecha_atencion desc limit 5";
+//		String query = "select * from turnero.turno  inner join turnero.sector on turnero.turno.id_sector =turnero.sector.id_sector where llamado ='SI' and  DATE(fecha_atencion) = DATE( NOW()) order by fecha_atencion desc limit 5";
+/*		String query = "select  numero_turno,nom_sector,cod_sector from turnero.turno  " +
+		" inner join turnero.sector on turnero.turno.id_sector =turnero.sector.id_sector " +
+		" where llamado ='SI' and  DATE(fecha_atencion) = DATE( NOW()) group by nom_sector,cod_sector order by fecha_atencion desc limit 100";*/
+		String query = "select  numero_turno,nom_sector,cod_sector from turnero.turno  " +
+		" inner join turnero.sector on turnero.turno.id_sector =turnero.sector.id_sector " +
+		" where llamado ='SI' and  DATE(fecha_atencion) = DATE( NOW()) order by cod_sector,fecha_atencion desc limit 100";
+
 		PreparedStatement preparedStmt;
 		try {
 			preparedStmt = connection.prepareStatement(query);
 			ResultSet rs = preparedStmt.executeQuery();
 
+			Map<String,String> sectores = new HashMap<String,String>();
+			
 			while (rs.next()) {
-				turno = new Turno();
-				turno.setNumeroTurno(rs.getString("cod_sector")
-						+ rs.getInt("numero_turno"));
-				turno.setNombreSector(rs.getString("nom_sector"));
-				turnos.add(turno);
+				String sector =rs.getString("cod_sector"); 
+				if ( ! sectores.containsKey(sector)){
+					sectores.put(sector, sector);
+					turno = new Turno();
+					turno.setNumeroTurno(sector
+							+ rs.getInt("numero_turno"));
+					turno.setNombreSector(rs.getString("nom_sector"));
+					turnos.add(turno);
+				}
 			}
 
 		} catch (SQLException e) {

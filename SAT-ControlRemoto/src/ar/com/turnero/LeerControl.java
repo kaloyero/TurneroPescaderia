@@ -76,20 +76,7 @@ public class LeerControl {
 	}
 
 	private static synchronized void pulsar(int dataReceived) {
-		if (dataReceived == 1) {
-			AccederUrl.botonSiguienteSectorUno();
-			System.out.println("derecha remoto 1--- " + dataReceived);
-		} else if (dataReceived == 2) {
-			AccederUrl.botonAnteriorSectorUno();
-			System.out.println("izquierda remoto 1--- " + dataReceived);
-		}
-		if (dataReceived == 3) {
-			AccederUrl.botonSiguienteSectorDos();
-			System.out.println("derecha remoto 2--- " + dataReceived);
-		} else if (dataReceived == 4) {
-			AccederUrl.botonAnteriorSectorDos();
-			System.out.println("izquierda remoto 2--- " + dataReceived);
-		}
-
+		System.out.println("PRESIONA BOTON--- " + dataReceived);
+		AccederUrl.llamarTurno(dataReceived);
 	}
 }

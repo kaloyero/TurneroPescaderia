@@ -6,8 +6,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Date;
 
 import org.apache.log4j.Logger;
 
@@ -29,12 +27,12 @@ public class LlamarTurnoSiguiente extends LlamarTurno {
 	 * @param sector
 	 * @param control
 	 */
-	public synchronized String execute(	int codigoControl) {
+	public synchronized String execute(	int idControl) {
 
 		LOGGER.debug(LoggerVariables.PREPARANDO_LLAMAR);
 
 		//obtengo el sector
-		int sector = getSectorByControl(codigoControl); 
+		int sector = getSectorByControl(idControl); 
 		
 		Connection connection = new ConnectionMysql().createConnection();
 
@@ -55,8 +53,6 @@ public class LlamarTurnoSiguiente extends LlamarTurno {
 				id_turno = rs.getInt("id_turno");
 				break;
 			}
-			
-			int idControl = getIdControlByCodigoControl(codigoControl);
 			
 			/* LLAMA AL SIGUIENTE TURNO*/
 			callTurnoSiguiente(idControl, id_turno );

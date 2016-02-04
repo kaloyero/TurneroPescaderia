@@ -17,9 +17,14 @@ body {
 .izq .primero{
 	min-height: 160px;
 	margin-bottom: 15px;
-	font-size: 84px;
+	font-size: 68px;
 }
 
+.izq .segundo{
+	min-height: 160px;
+	margin-bottom: 15px;
+	font-size: 68px;
+}
 .izq .otros{
 	height: 55px;
 	font-size: 27px;
