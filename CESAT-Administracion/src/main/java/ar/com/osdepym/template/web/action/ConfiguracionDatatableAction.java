@@ -70,13 +70,39 @@ public class ConfiguracionDatatableAction extends ActionSupport implements Param
 
 				this.setRow(this.getConfiguracionServicio().editarConfiguracion(configuracionlEditar));
 				this.setError(this.getRow().getError());
-				String result=uploadPicture(((String[]) parameters.get("data[image]"))[0]);
-				if (result=="error"){
+				String resultMostrador = "";
+				String resultTurneroFondo= "";
+				String resultTurneroLogo= "";
+				String errorImagenFinal="";
+				if (((String[]) parameters.get("data[image]"))[0]!=""){
+					resultMostrador=uploadPicture(((String[]) parameters.get("data[image]"))[0],"fondoMostrador.jpg");
+					if (resultMostrador=="error"){
+						errorImagenFinal="* Imagen Fondo Mostrador";
+					}
+
+				}
+				if (((String[]) parameters.get("data[imageFondoTurnero]"))[0]!=""){
+					resultTurneroFondo=uploadPicture(((String[]) parameters.get("data[imageFondoTurnero]"))[0],"fondoTurnero.jpg");
+					if (resultTurneroFondo=="error"){
+						errorImagenFinal="*Imagen Fondo Turnero ";
+					}
+
+				}
+				if (((String[]) parameters.get("data[imageLogoTurnero]"))[0]!=""){
+					resultTurneroLogo=uploadPicture(((String[]) parameters.get("data[imageLogoTurnero]"))[0],"logoTurnero.jpg");
+					if (resultTurneroLogo=="error"){
+						errorImagenFinal="* Imagen Logo Turnero";
+					}
+
+				}
+
+
+				if (errorImagenFinal!=""){
 					if(this.getRow().getError()==null){
-						this.setError("Datos guardados,excepto campo 'Imagen Fondo Mostrador',error en el path ingresado");
+						this.setError("Datos guardados.Existen errores para subir imagenes con la/las siguientes URL "+errorImagenFinal);
 
 					}else{
-						this.setError("Fallo en campo 'Imagen Fondo Mostrador',error en el path ingresado");
+						//this.setError("Existen errores para subir imagenes con la/las siguientes URL "+errorImagenFinal);
 
 					}
 				}
@@ -88,7 +114,7 @@ public class ConfiguracionDatatableAction extends ActionSupport implements Param
 		return SUCCESS;
 	}
 	
-	public String uploadPicture(String imageUrl){
+	public String uploadPicture(String imageUrl,String fileName){
 		
 		
 		 //String imageUrl = "http://www.avajava.com/images/avajavalogo.jpg";
@@ -121,14 +147,14 @@ public class ConfiguracionDatatableAction extends ActionSupport implements Param
 			 in.close();
 			 byte[] response = out.toByteArray();
 			 
-				String archivosFolder = "/archivos/mostrador.jpg";
+				String archivosFolder = "/archivos/"+fileName;
 				String serverFolder = ServletActionContext.getServletContext().getRealPath(archivosFolder);
 			 FileOutputStream fos = new FileOutputStream(serverFolder);
 			 fos.write(response);
 			 fos.close();
 		} catch (MalformedURLException e) {
 			//Si esta mal formada,se prueba ver si es una direccion local
-			String archivosFolder = "/archivos/mostrador.jpg";
+			String archivosFolder = "/archivos/"+fileName;
 			String serverFolder = ServletActionContext.getServletContext().getRealPath(archivosFolder);
 			File source = new File(imageUrl);
 			File dest = new File(serverFolder);

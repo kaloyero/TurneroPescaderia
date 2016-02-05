@@ -108,7 +108,7 @@ input[type='checkbox']:checked+label {
 			<div id="header">
 				<!-- Logo -->
 				<h1>
-					<img id="imagenMenu" src="images/dasda.png">
+					<img id="imagenMenu" src="../../CESAT-Administracion/archivos/logoTurnero.jpg">
 				</h1>
 <!-- 				<div id="reloj" align="right" -->
 <!-- 					style="padding: 30px; border-radius: 15px; background: #FFFDFC; border-color: beige; border: 12px !important; font-weight: 900; font-size: 40px; -->

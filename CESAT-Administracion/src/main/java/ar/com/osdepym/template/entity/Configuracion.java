@@ -12,7 +12,11 @@ public class Configuracion {
 	private int tiempogif ;
 	private String directorio ;
 	private String feed ;
-	private String image="2" ;
+	private String image="" ;
+	private String imageFondoTurnero="" ;
+	private String imageLogoTurnero="" ;
+
+
 
 
 	private String error;
@@ -53,6 +57,24 @@ public class Configuracion {
 	}
 	public void setFeed(String feed) {
 		this.feed = feed;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	public String getImageFondoTurnero() {
+		return imageFondoTurnero;
+	}
+	public void setImageFondoTurnero(String imageFondoTurnero) {
+		this.imageFondoTurnero = imageFondoTurnero;
+	}
+	public String getImageLogoTurnero() {
+		return imageLogoTurnero;
+	}
+	public void setImageLogoTurnero(String imageLogoTurnero) {
+		this.imageLogoTurnero = imageLogoTurnero;
 	}
 	
 	

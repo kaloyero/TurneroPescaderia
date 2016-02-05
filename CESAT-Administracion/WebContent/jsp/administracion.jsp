@@ -516,7 +516,13 @@ table.dataTable tr.selected td:first-child:before {
 										} ,{
 											label : "Imagen mostrador fondo",
 											name : "image"
-										}  
+										},{
+											label : "Imagen Turnero fondo",
+											name : "imageFondoTurnero"
+										}  ,{
+											label : "Imagen Logo Turnero",
+											name : "imageLogoTurnero"
+										}    
 
 
 										],
