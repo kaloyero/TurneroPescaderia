@@ -90,7 +90,7 @@ iframe {
 	}
 }
 </style>
-	
+
 <script>
 	function playSound(soundfile) {
 		console.log("ENTRA")
@@ -133,67 +133,80 @@ iframe {
 											console
 													.log("NUMERO",
 															$('.primero'))
-											$('.primero')
-													.html(
-															data.listaTurnos[0].nombreSector +'<BR>'+ data.listaTurnos[0].numeroTurno
-															)
-											$('.segundo')
-													.html(
-															data.listaTurnos[1].nombreSector +'<BR>'+ data.listaTurnos[1].numeroTurno)
+											if (data.listaTurnos[0] != undefined) {
+												//Muestra turno
+												$('.primero')
+														.html(
+																data.listaTurnos[0].nombreSector
+																		+ '<BR>'
+																		+ data.listaTurnos[0].numeroTurno)
+												//Cambia turno
+												if (data.listaTurnos[0].numeroTurno != ultimoNumeroLlamado) {
+													ultimoNumeroLlamado = data.listaTurnos[0].numeroTurno;
+													playSound()
+													setTimeout(function() {
+														playSound();
+													}, 7000);
+													for (i = 0; i < 5; i++) {
+														$('.primero')
+																.animate(
+																		{
+																			backgroundColor : "#rgb(208, 216, 181)"
+																		}, 800)
+																.animate(
+																		{
+																			backgroundColor : "#d9534f"
+																		}, 800)
+													}
 
-											if (data.listaTurnos[0].numeroTurno != ultimoNumeroLlamado) {
-												ultimoNumeroLlamado = data.listaTurnos[0].numeroTurno;
-												playSound()
-												setTimeout(function() {
-												playSound();
-												 }, 7000);
-												for (i = 0; i < 5; i++) {
-													$('.primero')
-															.animate(
-																	{
-																		backgroundColor : "#rgb(208, 216, 181)"
-																	}, 800)
-															.animate(
-																	{
-																		backgroundColor : "#d9534f"
-																	}, 800)
 												}
 
 											}
-											if (data.listaTurnos[1].numeroTurno != ultimoNumeroLlamadoSec2) {
-												ultimoNumeroLlamadoSec2 = data.listaTurnos[1].numeroTurno;
-												playSound()
-												setTimeout(function() {
-												playSound();
-												 }, 7000);
-												for (i = 0; i < 5; i++) {
-													$('.segundo')
-															.animate(
-																	{
-																		backgroundColor : "#rgb(208, 216, 181)"
-																	}, 800)
-															.animate(
-																	{
-																		backgroundColor : "#eea236"
-																	}, 800)																	
+
+											console.log("jojjoo",data.listaTurnos[1]);
+											if (data.listaTurnos[1] != undefined) {
+
+												$('.segundo')
+														.html(
+																data.listaTurnos[1].nombreSector
+																		+ '<BR>'
+																		+ data.listaTurnos[1].numeroTurno)
+
+												if (data.listaTurnos[1].numeroTurno != ultimoNumeroLlamadoSec2) {
+													ultimoNumeroLlamadoSec2 = data.listaTurnos[1].numeroTurno;
+													playSound()
+													setTimeout(function() {
+														playSound();
+													}, 7000);
+													for (i = 0; i < 5; i++) {
+														$('.segundo')
+																.animate(
+																		{
+																			backgroundColor : "#rgb(208, 216, 181)"
+																		}, 800)
+																.animate(
+																		{
+																			backgroundColor : "#eea236"
+																		}, 800)
+
+													}
 
 												}
-
 											}
 
 											//$('.primero').text(data.listaTurnos[0].sectorAtencion)
-// 											$('.segundo')
-// 													.html(
-// 															data.listaTurnos[1].nombreSector +' '+data.listaTurnos[1].numeroTurno)
-// 											$('.tercero')
-// 													.html(
-// 															data.listaTurnos[2].nombreSector +' '+data.listaTurnos[2].numeroTurno)
-// 											$('.cuarto')
-// 													.html(
-// 															data.listaTurnos[3].nombreSector +' '+data.listaTurnos[3].numeroTurno)
-// 											$('.quinto')
-// 													.html(
-// 															data.listaTurnos[4].nombreSector +' '+data.listaTurnos[4].numeroTurno)
+											// 											$('.segundo')
+											// 													.html(
+											// 															data.listaTurnos[1].nombreSector +' '+data.listaTurnos[1].numeroTurno)
+											// 											$('.tercero')
+											// 													.html(
+											// 															data.listaTurnos[2].nombreSector +' '+data.listaTurnos[2].numeroTurno)
+											// 											$('.cuarto')
+											// 													.html(
+											// 															data.listaTurnos[3].nombreSector +' '+data.listaTurnos[3].numeroTurno)
+											// 											$('.quinto')
+											// 													.html(
+											// 															data.listaTurnos[4].nombreSector +' '+data.listaTurnos[4].numeroTurno)
 
 										}
 
@@ -256,7 +269,6 @@ iframe {
 					});
 </script>
 <script type="text/javascript">
-
 	function startTime() {
 		today = new Date();
 		h = today.getHours();
@@ -280,18 +292,15 @@ iframe {
 	}
 </script>
 <body>
-	<div>
-	
-	</div>
+	<div></div>
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-lg-4 col-lg-offset-4">
 					<img class="logo-sticky scale-with-grid"
-						src="images/logo-steakhouse2.png"
-						alt=""/>
+						src="images/logo-steakhouse2.png" alt="" />
 					<div id="reloj" align="right"
-						style="font-weight: 900;    font-size: 40px;    color: #F7F7F5;    /* right: 150px; */    top: -65px;    opacity: 0.9;    position: relative;    margin-right: 50px;      right: -80%;   height: 10px;"></div>					
+						style="font-weight: 900; font-size: 40px; color: #F7F7F5; /* right: 150px; */ top: -65px; opacity: 0.9; position: relative; margin-right: 50px; right: -80%; height: 10px;"></div>
 				</div>
 			</div>
 		</div>
@@ -301,26 +310,25 @@ iframe {
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="row">
-					<div class="col-lg-3 col-lg-offset-1 izq" >
+					<div class="col-lg-3 col-lg-offset-1 izq">
 						<button type="button"
 							class="btn btn-danger btn-lg btn-block primero"></button>
 						<button type="button"
 							class="btn btn-warning btn-lg btn-block segundo"></button>
-<!-- 						<button type="button" -->
-<!-- 							class="btn btn-warning btn-lg btn-block tercero"></button> -->
-<!-- 						<button type="button" -->
-<!-- 							class="btn btn-warning btn-lg btn-block cuarto"></button> -->
-<!-- 						<button type="button" -->
-<!-- 							class="btn btn-warning btn-lg btn-block quinto"></button> -->
+						<!-- 						<button type="button" -->
+						<!-- 							class="btn btn-warning btn-lg btn-block tercero"></button> -->
+						<!-- 						<button type="button" -->
+						<!-- 							class="btn btn-warning btn-lg btn-block cuarto"></button> -->
+						<!-- 						<button type="button" -->
+						<!-- 							class="btn btn-warning btn-lg btn-block quinto"></button> -->
 					</div>
 					<div class="col-lg-6 col-lg-offset-1 der">
 						<div id="contenedorGaleria">
-							<div id="mygallery" data-autoplayvideo="true"  class="html5gallery"
-								data-skin="horizontal" 	data-resizemode="fill"
-								data-showcarousel="false" data-autoslide="true"
-								data-skin="gallery" 
-								style="display: none;">
-								</div>
+							<div id="mygallery" data-autoplayvideo="true"
+								class="html5gallery" data-skin="horizontal"
+								data-resizemode="fill" data-showcarousel="false"
+								data-autoslide="true" data-skin="gallery" style="display: none;">
+							</div>
 							<!-- 							<div  id="mygallery" data-autoplayvideo ="true" data-skin="horizontal" data-resizemode="fill" data-showcarousel="false" data-autoslide="true" data-skin="gallery" data-width="480" data-height="270"  style="display:none;"></div> -->
 
 						</div>
@@ -332,15 +340,15 @@ iframe {
 		</div>
 
 
-<div class="row contenedor-fix ">
-<div class="col-lg-12 marq">
-		<ul id="js-news" class="js-hidden">
+		<div class="row contenedor-fix ">
+			<div class="col-lg-12 marq">
+				<ul id="js-news" class="js-hidden">
 
-</ul>
-	</div>
-	</div>
+				</ul>
+			</div>
+		</div>
 
 	</div>
-<audio id="dummy" hidden="true" src="js/sonido.mp3"></audio>
+	<audio id="dummy" hidden="true" src="js/sonido.mp3"></audio>
 </body>
 </html>
