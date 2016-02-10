@@ -1,9 +1,5 @@
-body {
-/* background: url(http://ruggemar.com.ar/wp-content/uploads/2015/05/03.jpg) repeat;*/
-  height: 100%;
-}
-body:after { 
-	    margin-left: -100%;
+
+body { 
   content: '';
   position: absolute;
   top: 0;
@@ -13,7 +9,6 @@ body:after {
   background: url(../../CESAT-Administracion/archivos/fondoTurnero.jpg) repeat center center fixed;
   background-size:100% auto; 
   // background-size:  background-size[, background-size]*;
-  opacity: 0.4;
 }
 
 /*

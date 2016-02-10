@@ -94,10 +94,9 @@ input[type='checkbox']:checked+label {
 				<div class="row">
 					<div class="col-lg-4 col-lg-offset-4">
 						<img class="logo-sticky scale-with-grid"
-							src="images/logo-steakhouse2.png"
-							alt="">
-				<div id="reloj" align="right"
-					style="font-weight: 900;    font-size: 40px;    color: #F7F7F5;    /* right: 150px; */    top: -65px;    opacity: 0.9;    position: relative;    margin-right: 50px;     height: 10px;"></div>
+							src="images/logo-steakhouse2.png" alt="">
+						<div id="reloj" align="right"
+							style="font-weight: 900; font-size: 40px; color: #F7F7F5; /* right: 150px; */ top: -65px; opacity: 0.9; position: relative; margin-right: 50px; height: 10px;"></div>
 
 					</div>
 				</div>
@@ -108,11 +107,12 @@ input[type='checkbox']:checked+label {
 			<div id="header">
 				<!-- Logo -->
 				<h1>
-					<img id="imagenMenu" src="../../CESAT-Administracion/archivos/logoTurnero.jpg">
+					<img id="imagenMenu"
+						src="../../CESAT-Administracion/archivos/logoTurnero.jpg">
 				</h1>
-<!-- 				<div id="reloj" align="right" -->
-<!-- 					style="padding: 30px; border-radius: 15px; background: #FFFDFC; border-color: beige; border: 12px !important; font-weight: 900; font-size: 40px; -->
-<!-- 	/* font-size: 20px; */ color: #58582A; position: absolute; right: 150px; top: 50px; opacity: 0.8;"></div> -->
+				<!-- 				<div id="reloj" align="right" -->
+				<!-- 					style="padding: 30px; border-radius: 15px; background: #FFFDFC; border-color: beige; border: 12px !important; font-weight: 900; font-size: 40px; -->
+				<!-- 	/* font-size: 20px; */ color: #58582A; position: absolute; right: 150px; top: 50px; opacity: 0.8;"></div> -->
 				<!-- Intro -->
 				<h2>LE DA LA BIENVENIDA</h2>
 				<p style="font-weight: 500; font-size: 25px;">Seleccione el
@@ -219,6 +219,48 @@ input[type='checkbox']:checked+label {
 							'.0' + $.keypad.SPACE + $.keypad.START
 									+ $.keypad.END ]
 				});
+		intervaloImagenFondo();
+
+		function intervaloImagenFondo() {
+			setInterval(function() {
+
+				//$("#myimg").attr("src", "/myimg.jpg?"+d.getTime());
+				var val = Math.random();
+
+				var img = $("<img />").attr(
+						'src',
+						'../../CESAT-Administracion/archivos/fondoTurnero.jpg?'
+								+ val).on(
+						'load',
+						function() {
+							$('body').css('background','url(../../CESAT-Administracion/archivos/fondoTurnero.jpg?'+ val + ') repeat');
+							
+							
+						});
+
+				var img = $("<img />").attr(
+						'src',
+						'../../CESAT-Administracion/archivos/logoTurnero.jpg?'
+								+ val).on(
+						'load',
+						function() {
+							$('#imagenMenu').attr("src","../../CESAT-Administracion/archivos/logoTurnero.jpg?"+ val);
+							
+						});
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			}, 2000);
+		}
 	</script>
 
 </body>

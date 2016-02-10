@@ -8,6 +8,18 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
+
+
+
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+<meta http-equiv="pragma" content="no-cache" />
+
+
+
+
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
 
@@ -113,6 +125,16 @@ iframe {
 						obtenerUrlFeed()
 						function intervaloTurnos() {
 							setInterval(function() {
+					
+//$("#myimg").attr("src", "/myimg.jpg?"+d.getTime());
+var val =Math.random();
+
+var img = $("<img />").attr('src', '../../CESAT-Administracion/archivos/fondoMostrador.jpg?'+val)
+    .on('load', function() {
+		$('body').css('background','url(../../CESAT-Administracion/archivos/fondoMostrador.jpg?'+val+') repeat');
+
+    });
+
 								obtenerUltimosTurnos()
 							}, 2000);
 						}
