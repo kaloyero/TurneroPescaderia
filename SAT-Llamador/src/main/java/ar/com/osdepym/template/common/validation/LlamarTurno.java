@@ -145,5 +145,17 @@ public abstract class LlamarTurno {
 		preparedStmt2.close();
 		
 	}
-	
+
+	protected int getSizeRs(ResultSet rs) throws SQLException{
+		int size= 0;
+		if (rs != null)   
+		{  
+		  rs.beforeFirst();  
+		  rs.last();  
+		  size = rs.getRow();  
+		}
+		//Voy al principio del result Set (rs)
+		rs.beforeFirst(); 
+		return size;  
+	}
 }

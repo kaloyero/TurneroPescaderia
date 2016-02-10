@@ -54,23 +54,27 @@ public class LlamarTurnoAnterior extends LlamarTurno{
 			preparedStmt.setInt(2, sector);
 
 			ResultSet rs = preparedStmt.executeQuery();
-
-			int id_turno_retroceder = getTurnoId(rs);
-
-			/* TURNO ANTERIOR: Retrocedo el id de turno. lo pongo como que no fue llamado*/
-			callTurnoAnterior(id_turno_retroceder);
-
-			/* LLAMA AL SIGUIENTE TURNO*/
-			//Obtengo el turno anteriormente llamado por ese Sector
-			int id_turno_proximo = getTurnoId(rs);
-			if (id_turno_proximo > 0){
-				callTurnoSiguiente(idControl, id_turno_proximo );
+			
+			//Verifico que exista turno siguiente
+			boolean existeProximoTurno = verificarProximoTurno(rs);
+			if (existeProximoTurno){
+				//Obtengo el turno a retroceder
+				int id_turno_retroceder = getTurnoId(rs);
+	
+				/* TURNO ANTERIOR: Retrocedo el id de turno. lo pongo como que no fue llamado*/
+				callTurnoAnterior(id_turno_retroceder);
+	
+				/* LLAMA AL SIGUIENTE TURNO*/
+				//Obtengo el turno anteriormente llamado por ese Sector
+				int id_turno_proximo = getTurnoId(rs);
+				if (id_turno_proximo > 0){
+					callTurnoSiguiente(idControl, id_turno_proximo );
+				}
+	
+				// actualiza la tabla de turnos
+				System.out.println("ANTERIOR: Turno id que se retrocede " + id_turno_retroceder);
+				System.out.println("ANTERIOR: Turno id proximo a llamar " + id_turno_proximo);
 			}
-
-			// actualiza la tabla de turnos
-			System.out.println("ANTERIOR: Turno id que se retrocede " + id_turno_retroceder);
-			System.out.println("ANTERIOR: Turno id proximo a llamar " + id_turno_proximo);
-
 		} catch (SQLException e) {
 			LOGGER.error(LoggerVariables.ERROR + "-" + e.getMessage());
 			e.getMessage();
@@ -99,6 +103,15 @@ public class LlamarTurnoAnterior extends LlamarTurno{
 
 		}
 		return "OK";
+	}
+	
+	private boolean verificarProximoTurno(ResultSet rs) throws SQLException{
+		boolean proximoTurno = false;
+		if (getSizeRs(rs) > 1){
+			proximoTurno=true;
+		}
+		
+		return proximoTurno;
 	}
 	
 	private int getTurnoId(ResultSet rs) throws SQLException{
