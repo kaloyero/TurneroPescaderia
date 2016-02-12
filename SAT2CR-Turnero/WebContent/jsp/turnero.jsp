@@ -1,6 +1,12 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE HTML>
+ <% response.setHeader("Cache-Control", "no-cache");
+ response.setHeader("Cache-Control", "no-store");
+ response.setHeader("Pragma", "no-cache");
+ response.setDateHeader("Expires", 0);  
+%>
+
 
 <html>
 <head>
@@ -17,6 +23,7 @@
 <script type="text/javascript" src="js/jquery.keypad.js"></script>
 <script src="js/jquery-ui.js"></script>
 <script type="text/javascript" src="js/jquery.keypad-es.js"></script>
+
 
 <style type="text/css">
 .ui-dialog {
@@ -87,12 +94,12 @@ input[type='checkbox']:checked+label {
 
 </head>
 
-<body>
+<body style="background: url(../../SAT2CR-Administracion/archivos/fondoTurnero.jpg) repeat center center fixed;">
 	<div id="home" class="home">
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
 				<div class="row">
-					<div class="col-lg-4 col-lg-offset-4">
+					<div class="col-lg-4 col-lg-offset4">
 						<img class="logo-sticky scale-with-grid"
 							src="images/logo-steakhouse2.png" alt="">
 						<div id="reloj" align="right"
@@ -159,6 +166,7 @@ input[type='checkbox']:checked+label {
 	</div>
 	<script>
 		var opcionSeleccionada = false;
+		var lastImageUrl=""
 		var dialog;
 		$("a").click(function(e) {
 			if (opcionSeleccionada == false) {
@@ -171,14 +179,16 @@ input[type='checkbox']:checked+label {
 					success : function(data) {
 						//$("body").replaceWith(data); 
 						//$("#style1").attr("disabled", "disabled");
-
+						//NO deberia parsar nada con e fondo ,porque es un estio del body.El ody no se cambiea
 						$("body").empty()
 						$("body").append(data)
 						if ($("body").find('.ticketSalida').length == 0) {
 							$("#style1").attr("disabled", "disabled");
 						}
+						$("#logoTurnero").attr("src", lastImageUrl);
 						window.setTimeout(function() {
-							window.location.href = "inicio.action";
+							//Salvo que le ponagamos a imagen no de css,sino directamnte de aca a ver
+							window.location.reload(true);
 						}, 6000);
 					}
 				})
@@ -233,11 +243,13 @@ input[type='checkbox']:checked+label {
 								+ val).on(
 						'load',
 						function() {
-							$('body').css('background','SAT2CR./../SAT2CR-Administracion/archivos/fondoTurnero.jpg?'+ val + ') repeat');
+							console.log("ENTRAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+							$('body').css('background','url(../../SAT2CR-Administracion/archivos/fondoTurnero.jpg?'+ val + ')  repeat center center fixed');
+							
 							
 							
 						});
-
+				lastImageUrl="../../SAT2CR-Administracion/archivos/logoTurnero.jpg?"+ val
 				var img = $("<img />").attr(
 						'src',
 						'../../SAT2CR-Administracion/archivos/logoTurnero.jpg?'
@@ -252,7 +264,7 @@ input[type='checkbox']:checked+label {
 				
 				
 				
-				
+				//ES MUYYYY RARO O QUE PASa porque as propiedasdes del no cache y reaload true,seria para TODO
 				
 				
 				

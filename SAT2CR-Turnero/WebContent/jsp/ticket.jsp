@@ -11,7 +11,7 @@ body:after {
 		<div id="header-wrapper" class="ticketSalida">
 				<div id="header">
 					<!-- Logo -->
-					<h1><img src="images/dasda.png"></h1>
+					<h1><img id ="logoTurnero" src="#"></h1>
 					
 					<!-- Intro -->
 					<p class="ticket-message">No olvide retirar su ticket de la terminal.</p>
