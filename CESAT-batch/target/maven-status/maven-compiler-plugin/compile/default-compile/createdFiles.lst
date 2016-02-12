@@ -1,8 +1,0 @@
-ar\com\osdepym\model\Configuration.class
-ar\com\osdepym\context\WebAppInitialiazer.class
-ar\com\ruggemar\scheduler\SchedulerJob.class
-ar\com\osdepym\context\AppConfig.class
-ar\com\osdepym\bean\PeriodBatch.class
-ar\com\osdepym\context\rest\UpdateBatchService.class
-ar\com\osdepym\model\query\ConfigurationQuery.class
-ar\com\osdepym\model\BaseDao.class
