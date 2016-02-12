@@ -88,7 +88,7 @@ public class SchedulerJob implements Job {
 		// llamo a la url que invoca el turno siguiente
 		RestTemplate restTemplate = new RestTemplate();
 		ResponseEntity<String> response = restTemplate
-				.getForEntity("http://localhost:8080/SAT-Llamador/llamarTurno.action", String.class);
+				.getForEntity("http://localhost:8080/SAT2CR-Llamador/llamarTurno.action", String.class);
 		// restTemplate.getForObject(PROTOCOLO+suc.getIP()+PROYECTO+SERVICIO+"?id="+idUltimoTurnoSuc,
 		// TurnoEstadistica[].class);
 
@@ -99,7 +99,7 @@ public class SchedulerJob implements Job {
 		// llamo a la url que invoca el turno anterior
 		RestTemplate restTemplate = new RestTemplate();
 		ResponseEntity<String> response = restTemplate
-				.getForEntity("http://localhost:8080/SAT-Llamador/llamarTurno.action", String.class);
+				.getForEntity("http://localhost:8080/SAT2CR-Llamador/llamarTurno.action", String.class);
 	}
 
 	/*

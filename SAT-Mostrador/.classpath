@@ -22,6 +22,6 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/wsKaizenPescaderia/TurneroPescaderia/SAT-Mostrador/WebContent/WEB-INF/lib/struts2-json-plugin-2.3.16.3.jar"/>
+	<classpathentry kind="lib" path="C:/wsKaizenPescaderia/TurneroPescaderia/SAT2CR-Mostrador/WebContent/WEB-INF/lib/struts2-json-plugin-2.3.16.3.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

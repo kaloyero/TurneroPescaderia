@@ -23,20 +23,20 @@
 
 <title>Administracion RuggeMar</title>
 <link rel="stylesheet" type="text/css"
-	href="/CESAT-Administracion/datatable/media/css/jquery.dataTables.css">
+	href="/SAT2CR-Administracion/datatable/media/css/jquery.dataTables.css">
 <link rel="stylesheet" type="text/css"
-	href="/CESAT-Administracion/datatable/extensions/TableTools/css/dataTables.tableTools.css">
+	href="/SAT2CR-Administracion/datatable/extensions/TableTools/css/dataTables.tableTools.css">
 <link rel="stylesheet" type="text/css"
-	href="/CESAT-Administracion/datatable/extensions/Editor-1.3.3/css/dataTables.editor.css">
+	href="/SAT2CR-Administracion/datatable/extensions/Editor-1.3.3/css/dataTables.editor.css">
 <link rel="stylesheet" type="text/css"
 	href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
 <link rel="stylesheet" type="text/css"
-	href="/CESAT-Administracion/datatable/examples/resources/syntax/shCore.css">
+	href="/SAT2CR-Administracion/datatable/examples/resources/syntax/shCore.css">
 
 <link rel="stylesheet"
 	href="css/jquery-ui-smooth.css">
 <link rel="stylesheet" type="text/css"
-	href="/CESAT-Administracion/datatable/examples/resources/demo.css">
+	href="/SAT2CR-Administracion/datatable/examples/resources/demo.css">
 <style type="text/css" class="init">
 table.dataTable tr td:first-child {
 	text-align: center;
@@ -56,20 +56,20 @@ table.dataTable tr.selected td:first-child:before {
 }
 </style>
 <script type="text/javascript" language="javascript"
-	src="/CESAT-Administracion/datatable/media/js/jquery.js"></script>
+	src="/SAT2CR-Administracion/datatable/media/js/jquery.js"></script>
 <script type="text/javascript"
-	src="/CESAT-Administracion/datatable/examples/resources/jquery-ui.js"></script>
+	src="/SAT2CR-Administracion/datatable/examples/resources/jquery-ui.js"></script>
 <script type="text/javascript" language="javascript"
-	src="/CESAT-Administracion/datatable/media/js/jquery.dataTables.js"></script>
+	src="/SAT2CR-Administracion/datatable/media/js/jquery.dataTables.js"></script>
 <script type="text/javascript" language="javascript"
-	src="/CESAT-Administracion/datatable/extensions/TableTools/js/dataTables.tableTools.js"></script>
+	src="/SAT2CR-Administracion/datatable/extensions/TableTools/js/dataTables.tableTools.js"></script>
 <script type="text/javascript" language="javascript"
-	src="/CESAT-Administracion/datatable/extensions/Editor-1.3.3/js/dataTables.editor.js"></script>
+	src="/SAT2CR-Administracion/datatable/extensions/Editor-1.3.3/js/dataTables.editor.js"></script>
 <script type="text/javascript" language="javascript"
-	src="/CESAT-Administracion/datatable/examples/resources/syntax/shCore.js"></script>
+	src="/SAT2CR-Administracion/datatable/examples/resources/syntax/shCore.js"></script>
 <script type="text/javascript" language="javascript"
 
-	src="/CESAT-Administracion/datatable/examples/resources/demo.js"></script>
+	src="/SAT2CR-Administracion/datatable/examples/resources/demo.js"></script>
 	<link rel="stylesheet" href="css/style.css" />
 <script type="text/javascript" language="javascript" class="init">
 	var editorSectores; // use a global for the submit and return data rendering in the examples

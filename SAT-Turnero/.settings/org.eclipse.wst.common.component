@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="SAT-Turnero">
+    <wb-module deploy-name="SAT2CR-Turnero">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <wb-resource deploy-path="/WEB-INF/classes/" source-path="/ImportedClasses"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/test"/>
-        <property name="java-output-path" value="/SAT-Turnero/build/classes"/>
-        <property name="context-root" value="SAT-Turnero"/>
+        <property name="java-output-path" value="/SAT2CR-Turnero/build/classes"/>
+        <property name="context-root" value="SAT2CR-Turnero"/>
     </wb-module>
 </project-modules>

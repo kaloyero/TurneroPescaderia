@@ -108,7 +108,7 @@ input[type='checkbox']:checked+label {
 				<!-- Logo -->
 				<h1>
 					<img id="imagenMenu"
-						src="../../CESAT-Administracion/archivos/logoTurnero.jpg">
+						src="../../SAT2CR-Administracion/archivos/logoTurnero.jpg">
 				</h1>
 				<!-- 				<div id="reloj" align="right" -->
 				<!-- 					style="padding: 30px; border-radius: 15px; background: #FFFDFC; border-color: beige; border: 12px !important; font-weight: 900; font-size: 40px; -->
@@ -229,22 +229,22 @@ input[type='checkbox']:checked+label {
 
 				var img = $("<img />").attr(
 						'src',
-						'../../CESAT-Administracion/archivos/fondoTurnero.jpg?'
+						'../../SAT2CR-Administracion/archivos/fondoTurnero.jpg?'
 								+ val).on(
 						'load',
 						function() {
-							$('body').css('background','url(../../CESAT-Administracion/archivos/fondoTurnero.jpg?'+ val + ') repeat');
+							$('body').css('background','SAT2CR./../SAT2CR-Administracion/archivos/fondoTurnero.jpg?'+ val + ') repeat');
 							
 							
 						});
 
 				var img = $("<img />").attr(
 						'src',
-						'../../CESAT-Administracion/archivos/logoTurnero.jpg?'
+						'../../SAT2CR-Administracion/archivos/logoTurnero.jpg?'
 								+ val).on(
 						'load',
 						function() {
-							$('#imagenMenu').attr("src","../../CESAT-Administracion/archivos/logoTurnero.jpg?"+ val);
+							$('#imagenMenu').attr("src","../../SAT2CR-Administracion/archivos/logoTurnero.jpg?"+ val);
 							
 						});
 				

@@ -66,7 +66,7 @@ public class MostradorAction extends ActionSupport{
 			if (StringUtils.isNotEmpty(urlPublicidad)  ){
 				File source = new File(urlPublicidad);
 
-				//File dest = new File("C:\\wsKaizen\\SAT-Mostrador\\WebContent\\archivos");
+				//File dest = new File("C:\\wsKaizen\\SAT2CR-Mostrador\\WebContent\\archivos");
 				//File dest = new File(request.getServletContext().getRealPath("/WebContent/archivos").toString());
 				try {
 					FileUtils.cleanDirectory(dest);
@@ -91,10 +91,10 @@ public class MostradorAction extends ActionSupport{
 							mapa.put("duration",tiempo.toString());
 
 					  }			  
-			    	mapa.put("thumbnail", "/SAT-Mostrador/archivos/"+child.getName());
-					mapa.put("file", "/SAT-Mostrador/archivos/"+child.getName());
-//			    	mapa.put("thumbnail", "http://localhost:8080/SAT-Mostrador/archivos/"+child.getName());
-//					mapa.put("file", "http://localhost:8080/SAT-Mostrador/archivos/"+child.getName());
+			    	mapa.put("thumbnail", "/SAT2CR-Mostrador/archivos/"+child.getName());
+					mapa.put("file", "/SAT2CR-Mostrador/archivos/"+child.getName());
+//			    	mapa.put("thumbnail", "http://localhost:8080/SAT2CR-Mostrador/archivos/"+child.getName());
+//					mapa.put("file", "http://localhost:8080/SAT2CR-Mostrador/archivos/"+child.getName());
 
 						mapa.put("title", "Rugge Mar");
 						mapa.put("link", "link");

@@ -129,9 +129,9 @@ iframe {
 //$("#myimg").attr("src", "/myimg.jpg?"+d.getTime());
 var val =Math.random();
 
-var img = $("<img />").attr('src', '../../CESAT-Administracion/archivos/fondoMostrador.jpg?'+val)
+var img = $("<img />").attr('src', '../../SAT2CR-Administracion/archivos/fondoMostrador.jpg?'+val)
     .on('load', function() {
-		$('body').css('background','url(../../CESAT-Administracion/archivos/fondoMostrador.jpg?'+val+') repeat');
+		$('body').css('background','url(../../SAT2CR-Administracion/archivos/fondoMostrador.jpg?'+val+') repeat');
 
     });
 
@@ -284,7 +284,7 @@ var img = $("<img />").attr('src', '../../CESAT-Administracion/archivos/fondoMos
 											'<div  id="mygallery" data-autoplayvideo ="true" data-skin="horizontal" data-width="750" data-height="430" data-resizemode="fill" data-showcarousel="false" data-autoslide="true" data-skin="gallery"  style="display:none;"></div>')
 							$("#mygallery").html5gallery({
 								skin : "gallery",
-								remote : "/SAT-Mostrador/galeria.action"
+								remote : "/SAT2CR-Mostrador/galeria.action"
 							});
 						}
 

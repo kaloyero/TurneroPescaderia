@@ -158,7 +158,7 @@
 											'<div  id="mygallery" data-autoplayvideo ="true" data-skin="horizontal" data-width="750" data-height="430" data-resizemode="fill" data-showcarousel="false" data-autoslide="true" data-skin="gallery" data-width="480" data-height="270"  style="display:none;"></div>')
 							$("#mygallery").html5gallery({
 								skin : "gallery",
-								remote : "/SAT-Mostrador/galeria.action"
+								remote : "/SAT2CR-Mostrador/galeria.action"
 							});
 						}
 
