@@ -60,7 +60,7 @@
 	{
 		position: relative;
 		margin: 0 auto;
-		width: 860px;
+		width: 800px;
 	}
 	
 	.btn
@@ -79,7 +79,7 @@
 		margin: 10px;
 		position: relative;
 		float: left;
-		min-width: 350px;
+		min-width: 40%;
 	}
 
 	.btn:hover
